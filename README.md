@@ -1,154 +1,138 @@
-# .NET Agent Skills
+# Agent Skills — Claude Directory Reference
 
-[![Dashboard](https://github.com/dotnet/skills/actions/workflows/pages/pages-build-deployment/badge.svg)](https://dotnet.github.io/skills/)
+A plugin marketplace that documents and helps author the files and directories used to
+configure Claude Code at the project and global levels.
 
-This repository contains the .NET team's curated set of portable skills and host-specific custom
-agents for coding agents. For information about the Agent Skills standard, see
-[agentskills.io](https://agentskills.io).
+Each plugin focuses on one part of the directory layout. Its bundled Agent Skill explains
+the purpose, scope, loading behavior, conventions, and practical use of that part of the
+configuration. Supporting reference material lives beside the skill so it can be consulted
+when needed.
 
-> [!TIP]
-> **Compare skill value:** [Open the Skill Value dashboard](https://dotnet.github.io/skills/)
-> See token use, elapsed time, activation, and not-passed rates by plugin, skill,
-> executor model, and judge model.
+This repository is a **directory-layout reference and authoring toolkit**. It is not the
+upstream .NET skills collection, and it does not ship the .NET development skills that were
+present in the source repository used as a packaging reference.
 
-Plugin support is component-specific:
+## What's included
 
-- Skills and MCP servers are the portable component types defined by
-  [Agent Plugins 1.0](https://agent-plugins.org/specification).
-- Files under `agents/*.agent.md` use GitHub Copilot custom-agent conventions. They are not
-  installed as native OpenAI Codex agents.
-- Native Codex agents use `.codex/agents/*.toml`. This repository does not currently ship them
-  because Codex plugin installation does not place agent files in those discovery locations.
+| Plugin | Directory or area | What it covers |
+| --- | --- | --- |
+| [agent-config](plugins/agent-config/) | Root files and `.agents/` | Project instructions, settings, MCP configuration, keybindings, app state, and the project-level configuration layout. |
+| [rules](plugins/rules/) | `rules/` | Topic-scoped instructions, including optional path-based loading with frontmatter globs. |
+| [skills](plugins/skills/) | `skills/` | Reusable, invocable skill folders with a `SKILL.md` entrypoint and supporting files. |
+| [commands](plugins/commands/) | `commands/` | Single-file prompts invoked by name, including argument conventions and the relationship to skills. |
+| [output-styles](plugins/output-styles/) | `output-styles/` | Custom instruction sets that change the assistant's response style. |
+| [agents](plugins/agents/) | `agents/` | Specialized subagents with their own context, tool access, and optional model configuration. |
+| [workflows](plugins/workflows/) | `workflows/` | Dynamic workflow scripts that coordinate subagents. |
+| [agent-memory](plugins/agent-memory/) | `agent-memory/` | Persistent, project-scoped memory belonging to individual subagents. |
+| [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
+| [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
 
-## What's Included
+The marketplace manifest is [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
+Each plugin has its own `plugin.json`, host metadata where applicable, and a `skills/`
+directory containing its `SKILL.md` entrypoint and any supporting `references/`.
 
-| Plugin | Description |
-|--------|-------------|
-| [dotnet](plugins/dotnet/) | High-level .NET development skills plus C# language server (LSP) integration for hosts that support it. |
-| [dotnet-advanced](plugins/dotnet-advanced/) | Collection of .NET skills for handling specific .NET tasks for special scenarios. |
-| [dotnet-data](plugins/dotnet-data/) | Skills for .NET data access and Entity Framework related tasks. |
-| [dotnet-diag](plugins/dotnet-diag/) | Skills for .NET performance investigations, debugging, and incident analysis. |
-| [dotnet-msbuild](plugins/dotnet-msbuild/) | Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization, code quality, and modernization. |
-| [dotnet-nuget](plugins/dotnet-nuget/) | NuGet and .NET package management: dependency management and modernization. |
-| [dotnet-upgrade](plugins/dotnet-upgrade/) | Skills for migrating and upgrading .NET projects across framework versions, language features, and compatibility targets. |
-| [dotnet-maui](plugins/dotnet-maui/) | Skills for .NET MAUI development: environment setup, diagnostics, and troubleshooting. |
-| [dotnet-ai](plugins/dotnet-ai/) | AI and ML skills for .NET: technology selection, LLM integration, agentic workflows, RAG pipelines, MCP, and classic ML with ML.NET. |
-| [dotnet-template-engine](plugins/dotnet-template-engine/) | .NET Template Engine skills: template discovery, project scaffolding, and template authoring. |
-| [dotnet-test](plugins/dotnet-test/) | Skills for running, generating, analyzing, and improving .NET tests: test execution, filtering, platform detection, coverage, testability, and MSTest workflows. |
-| [dotnet-test-migration](plugins/dotnet-test-migration/) | Skills and a GitHub Copilot orchestrator agent for migrating .NET test frameworks and platforms: MSTest and xUnit version upgrades, xUnit-to-MSTest conversion, and VSTest to Microsoft.Testing.Platform. |
-| [dotnet-aspnetcore](plugins/dotnet-aspnetcore/) | ASP.NET Core web development skills including middleware, endpoints, real-time communication, and API patterns. |
-| [dotnet-blazor](plugins/dotnet-blazor/) | Skills for Blazor development: component authoring, interactivity, and web application patterns. |
-| [dotnet-winforms](plugins/dotnet-winforms/) | Skills for Windows Forms development: project setup, UI design, data binding, accessibility, and modern .NET practices. |
-| [dotnet11](plugins/dotnet11/) | Skills for new .NET 11 APIs and language features. |
+## Repository layout
 
-## Agentic Workflows
-
-Reusable GitHub Agentic Workflows are published under
-[`agentic-workflows/`](agentic-workflows/). Install the complete collection with
-`gh aw add-wizard dotnet/skills/agentic-workflows@main`, or install an individual
-package using the command in its README.
-
-## Installation
-
-### 🚀 Plugins - Copilot CLI / Claude Code
-
-1. Launch Copilot CLI or Claude Code
-2. Add the marketplace:
-   ```
-   /plugin marketplace add dotnet/skills
-   ```
-3. Install a plugin:
-   ```
-   /plugin install <plugin>@dotnet-agent-skills
-   ```
-4. Restart to load the new plugins
-5. View available skills:
-   ```
-   /skills
-   ```
-6. View available agents:
-   ```
-   /agents
-   ```
-7. Update plugin (on demand):
-   ```
-   /plugin update <plugin>@dotnet-agent-skills
-   ```
-
-### VS Code / VS Code Insiders (Preview)
-
-> [!IMPORTANT]  
-> VS Code plugin support is a preview feature and subject to change. You may need to enable it first.
-
-```jsonc
-// settings.json
-{
-  "chat.plugins.enabled": true,
-  "chat.plugins.marketplaces": ["dotnet/skills"]
-}
+```text
+.
+├── .agents/
+│   ├── rules/                 # Repository-wide authoring guidance
+│   └── skills/                # Skills used to maintain this repository
+├── .claude-plugin/
+│   └── marketplace.json       # Claude Code marketplace catalog
+├── .cursor-plugin/            # Cursor marketplace metadata
+├── plugins/
+│   ├── agent-config/
+│   ├── agent-memory/
+│   ├── agents/
+│   ├── commands/
+│   ├── output-styles/
+│   ├── projects/
+│   ├── rules/
+│   ├── skills/
+│   ├── themes/
+│   └── workflows/
+│       ├── plugin.json
+│       └── skills/
+│           └── <skill-name>/
+│               ├── SKILL.md
+│               └── references/
+├── AGENTS.md
+└── README.md
 ```
 
-Once configured, type `/plugins` in Copilot Chat or use the `@agentPlugins` filter in Extensions to browse and install plugins from the marketplace.
+The exact files vary by plugin. Consult the plugin's own README and skill references for
+its specific directory conventions and examples.
 
-### Cursor
+## Scope and terminology
 
-This repository is a [Cursor plugin marketplace](https://cursor.com/docs/plugins). You can discover and install published plugins directly in Cursor:
+The reference material distinguishes areas that can look similar but serve different roles:
 
-1. Open the marketplace panel in Cursor
-2. Search for `.NET` or browse [cursor.com/marketplace](https://cursor.com/marketplace)
-3. Install the desired plugins
+- **Project configuration** lives with a project and can be shared with its contributors.
+- **Global configuration** belongs to the user's environment and can apply across projects.
+- **Skills** package reusable instructions and supporting resources behind a `SKILL.md`.
+- **Commands** are single-file prompts; the reference explains their conventions and how they
+  relate to skills.
+- **Subagent memory** is separate from the main session's **project auto memory**.
+- **Plugins** package and distribute skills; they are not themselves the Claude configuration
+  directories being documented.
 
-For local development or unpublished changes, import plugins from a local checkout:
+Some details are host- and version-specific. Treat the skill references as documentation of
+the conventions they describe, and check the linked official documentation when validating
+behavior for a particular Claude Code release.
 
-1. Copy or symlink your local checkout to `~/.cursor/plugins/local/dotnet-agent-skills`
-2. Restart Cursor or run **Developer: Reload Window**
+## Installation and use
 
-### Codex CLI
+This repository is organized as a Claude Code plugin marketplace. To use it, make the
+repository available to Claude Code (for example, by cloning it locally), then add that
+marketplace from the local checkout using Claude Code's marketplace command:
 
-Skills in this repository follow the [agentskills.io](https://agentskills.io) open standard
-and are compatible with [OpenAI Codex](https://developers.openai.com/codex/skills).
-
-Codex plugin installs expose the skills and any Codex-compatible MCP servers declared by the
-plugin. They do not expose the repository's GitHub Copilot `.agent.md` files, their static
-handoffs, or host-specific LSP declarations. Use Codex's built-in dynamic subagent delegation
-instead. Native Codex custom agents are a separate configuration mechanism documented under
-[multi-agent workflows](https://developers.openai.com/codex/multi-agent/). OpenAI
-[Agents SDK handoffs](https://openai.github.io/openai-agents-python/handoffs/) are an
-application-level transfer between SDK-defined agents; they are separate from both Copilot's
-static UI handoff metadata and Codex plugin or custom-agent packaging.
-
-#### Plugin marketplace (recommended)
-
-Codex CLI v0.121.0 and later supports a [plugin marketplace](https://developers.openai.com/codex/plugins).
-This repository ships a Codex-native marketplace manifest at `.agents/plugins/marketplace.json`,
-so you can register `dotnet/skills` as a marketplace and install plugins from it directly.
-
-1. Add the marketplace:
-   ```bash
-   codex plugin marketplace add dotnet/skills
-   ```
-2. Launch Codex and open the plugin browser:
-   ```
-   /plugins
-   ```
-3. Browse the `dotnet-agent-skills` tab and install the desired plugins.
-4. Update plugins on demand:
-   ```bash
-   codex plugin marketplace upgrade dotnet-agent-skills
-   ```
-
-#### Individual skills
-
-You can also install individual skills using the `skill-installer` CLI with the GitHub URL:
-
-```bash
-$ skill-installer install https://github.com/dotnet/skills/tree/main/plugins/<plugin>/skills/<skill-name>
+```text
+/plugin marketplace add <path-to-local-checkout>
 ```
+
+Browse the marketplace and install the reference plugins you want:
+
+```text
+/plugin
+```
+
+After installation, invoke a plugin's skill by its skill name, or let Claude Code select it
+when the task matches its description. The skill's `SKILL.md` is the entrypoint; consult
+its bundled `references/` for deeper details and examples.
+
+> **Access note:** If you use a remote GitHub marketplace instead of a local checkout, the
+> repository must be accessible to the account and environment performing the installation.
+> This repository has previously been configured as a private GitHub repository, so a local
+> checkout is the predictable option unless its visibility or access has changed.
+
+## Source material and provenance
+
+The directory descriptions and examples were prepared from the Claude Code directory
+documentation and the project/global directory screenshots referenced by the plugin READMEs.
+The repository records the upstream source used for plugin packaging conventions in
+[`PROVENANCE`](PROVENANCE). That upstream repository supplied the **plugin layout convention**;
+its .NET plugin content was removed and is not part of this marketplace.
+
+For behavior that may change between releases, consult the
+[Claude Code documentation](https://docs.claude.com/en/docs/claude-code/overview).
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines and how to add a new plugin.
+When adding or changing a reference area:
+
+1. Keep each top-level `plugins/<name>/` directory independently understandable.
+2. Preserve the plugin packaging convention: plugin metadata, host metadata as required,
+   and a `skills/` directory.
+3. Give each skill a clear `SKILL.md` entrypoint.
+4. Put substantial supporting material in that skill's `references/` directory rather than
+   overloading the entrypoint.
+5. Keep the root marketplace manifest synchronized with the plugin directories.
+6. Ground behavioral claims in the relevant official documentation and identify version-specific
+   behavior where appropriate.
+
+See [`AGENTS.md`](AGENTS.md) for repository-specific authoring guidance.
 
 ## License
 
-See [LICENSE](LICENSE) for details.
+See [`LICENSE`](LICENSE) for license terms.
