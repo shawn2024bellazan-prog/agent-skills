@@ -1,25 +1,59 @@
 ---
 name: author-commands
-description: "Author single-file slash commands. Use when adding a named prompt; prefer a skill for new workflows that need supporting files."
+description: "Author single-file AGENTS slash commands in project or global commands directories. Use for a focused prompt invoked by name; use author-skills when the workflow needs a skill directory or supporting files."
 ---
 
 # Commands
 
-See ../../README.md for the directory overview.
+## Purpose
 
-## Where it lives
+Create a focused, single-file AGENTS slash command and place it at the intended project or global scope.
 
-Project: .claude/commands/*.md. Global: C:\Users\pmcro\.claude\commands\.
+## When to Use
 
-## How to author it
+- Adding a named prompt invoked as `/<name>`.
+- Updating an existing single-file command.
+- Choosing whether a command is shared by a project or personal.
 
-1. Create commands/<name>.md; it is invoked as /<name>.
-2. Use argument-hint frontmatter and $ARGUMENTS for parameters.
-3. If a skill and a command share a name, the skill wins; new workflows should usually be skills.
+## When Not to Use
+
+- Building a multi-step workflow that needs supporting files; use `author-skills`.
+- Creating or managing dynamic workflow scripts; use `author-workflows`.
+
+## Inputs
+
+| Input | Required | Description |
+|-------|----------|-------------|
+| Command behavior | Yes | The focused task the slash command should perform. |
+| Name and scope | If known | Command name and project or global location; discover existing conventions if unspecified. |
+| Arguments | No | Inputs the command should accept from the user. |
+
+## Workflow
+
+1. Confirm this is a single-file prompt rather than a reusable workflow with supporting assets.
+2. Choose project scope (`.claude/commands/`) for shared commands or global scope (`~/.claude/commands/`) for personal commands.
+3. Create or edit `<name>.md` with clear instructions. Use `argument-hint` and `$ARGUMENTS` when the command accepts parameters.
+4. Check for a same-named skill: the skill takes precedence, so avoid creating a confusing duplicate.
+5. Confirm the command is in the chosen scope and can be invoked with its intended slash name.
+
+## Validation
+
+- [ ] The Markdown file is in the correct project or global commands directory.
+- [ ] The instructions are focused and any argument placeholders match the prompt.
+- [ ] A same-named skill does not unexpectedly shadow the command.
+
+## Common Pitfalls
+
+| Pitfall | Solution |
+|---------|----------|
+| Using a command for a workflow with supporting assets | Create a skill instead. |
+| Omitting argument guidance | Add `argument-hint` and reference `$ARGUMENTS` where useful. |
+| Creating a command with the same name as a skill | Rename one; skills take precedence. |
+| Assuming a global command is shared with the team | Use project scope when teammates should receive it. |
 
 ## References
 
-These pages hold the content data (when it loads, tips, and a worked example) taken from the Claude directory screenshots:
+See [the plugin README](../../README.md) for the directory overview.
 
-- references/fix-issue.md
-- references/global.md
+- [Fix issue command](./references/fix-issue.md)
+- [Global commands](./references/global.md)

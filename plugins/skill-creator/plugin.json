@@ -1,0 +1,6 @@
+{
+  "name": "skill-creator",
+  "version": "0.1.0",
+  "description": "Author new agent skills: scaffold a skill folder with SKILL.md, references, assets, and scripts, then validate it.",
+  "skills": ["./skills/"]
+}

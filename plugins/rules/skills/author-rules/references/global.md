@@ -8,4 +8,4 @@
 
 Same as the project rules/ directory but applies everywhere. Use it for conventions you want across all your work, such as personal code style or commit message format.
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

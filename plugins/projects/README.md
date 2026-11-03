@@ -15,4 +15,4 @@ Auto memory lets the agent accumulate knowledge across sessions without you writ
 - Topic files like debugging.md are read on demand, not at startup
 - These are plain markdown. Edit or delete them anytime
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

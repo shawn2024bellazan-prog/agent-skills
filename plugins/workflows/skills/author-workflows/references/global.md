@@ -8,4 +8,4 @@
 
 Workflow scripts saved here are available across all your projects. A project workflow with the same name takes precedence.
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

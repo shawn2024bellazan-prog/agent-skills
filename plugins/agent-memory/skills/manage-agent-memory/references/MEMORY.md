@@ -23,4 +23,4 @@ Works the same as the main auto memory: the subagent creates and updates this fi
 - Unhandled promise rejections in background jobs
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

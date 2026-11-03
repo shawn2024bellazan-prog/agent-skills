@@ -390,7 +390,7 @@ foreach ($name in $Plugins) {
     $pluginDir = Join-Path $pluginsRoot $name
     $manifest = Join-Path $pluginDir 'plugin.json'
     $codexManifest = Join-Path $pluginDir '.codex-plugin' 'plugin.json'
-    # Claude Code needs an inline plugin.json, but host-specific fields can differ from the root
+    # AGENTS needs an inline plugin.json, but host-specific fields can differ from the root
     # manifest. Require it explicitly because the root manifest is not a safe host-specific template.
     $claudeManifest = Join-Path $pluginDir '.claude-plugin' 'plugin.json'
 

@@ -7,7 +7,7 @@
     {
       "name": "agent-config",
       "source": "./plugins/agent-config",
-      "description": "Reference for Claude Code root files and project/global .claude/ directories: instructions, MCP servers, settings, keybindings, app state."
+      "description": "Reference for AGENTS root files and project/global .claude/ directories: instructions, MCP servers, settings, keybindings, app state."
     },
     {
       "name": "rules",
@@ -53,6 +53,11 @@
       "name": "projects",
       "source": "./plugins/projects",
       "description": "Reference for projects/: auto memory, per project (global scope)."
+    },
+    {
+      "name": "skill-creator",
+      "source": "./plugins/skill-creator",
+      "description": "Author new agent skills: scaffold a skill folder with SKILL.md, references, assets, and scripts, then validate it."
     }
   ]
 }

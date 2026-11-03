@@ -29,4 +29,4 @@ Holds state that does not belong in settings.json: account details, per-project 
 }
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

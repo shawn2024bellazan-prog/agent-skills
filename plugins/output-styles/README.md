@@ -8,4 +8,4 @@
 
 Output styles are usually personal, so most live in the global output-styles/ directory. Put one in the project if your team shares a style, like a review mode everyone uses. See the global page for the full explanation and example.
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

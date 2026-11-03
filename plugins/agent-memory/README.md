@@ -14,4 +14,4 @@ Subagents with memory: project in their frontmatter get a dedicated memory direc
 - This directory holds project-scoped subagent memory, meant to be shared with your team. To keep memory out of version control use memory: local, which writes to agent-memory-local/ instead. For cross-project memory use memory: user, which writes to the global agent-memory/
 - The main session auto memory is a different feature; see projects/ in the global scope
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

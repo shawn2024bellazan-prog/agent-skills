@@ -22,4 +22,4 @@ Each .json file defines a custom color theme: a built-in base preset plus an ove
 }
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

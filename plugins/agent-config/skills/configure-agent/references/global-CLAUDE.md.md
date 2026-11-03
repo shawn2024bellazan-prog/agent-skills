@@ -24,4 +24,4 @@ Your global instruction file. Loaded alongside the project instructions at sessi
 - Prefer composition over inheritance
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

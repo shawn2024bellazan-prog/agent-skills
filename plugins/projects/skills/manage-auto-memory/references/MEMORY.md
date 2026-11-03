@@ -21,4 +21,4 @@ The agent creates and updates this file as it works; you do not write it. It act
 - [debugging.md](debugging.md): auth token rotation and DB connection troubleshooting
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

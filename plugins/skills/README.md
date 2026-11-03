@@ -14,4 +14,4 @@ Each skill is a folder with a SKILL.md file plus any supporting files it needs. 
 - The description frontmatter determines when the agent auto-invokes the skill
 - Bundle reference docs alongside SKILL.md. The agent knows the skill directory path and can read supporting files when you mention them
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

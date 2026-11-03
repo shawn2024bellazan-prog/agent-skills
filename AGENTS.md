@@ -1,10 +1,10 @@
 # Repository instructions
 
-This repository is a directory-reference and authoring marketplace. It contains ten independent plugins under plugins/, each documenting one part of the Claude Code project or global directory layout.
+This repository is a directory-reference and authoring marketplace. It contains ten independent plugins under plugins/, each documenting one part of the AGENTS project or global directory layout.
 
 ## Product scope
 
-The marketplace documents Claude Code root files and the project/global .claude/ layouts: settings, rules, skills, commands, output styles, agents, workflows, subagent persistent memory, global themes, and per-project automatic memory. The repository's own .agents/ directory is reserved for Codex marketplace metadata and repository-maintenance assets.
+The marketplace documents AGENTS root files and the project/global .claude/ layouts: settings, rules, skills, commands, output styles, agents, workflows, subagent persistent memory, global themes, and per-project automatic memory. The repository's own .agents/ directory is reserved for Codex marketplace metadata and repository-maintenance assets.
 
 Do not reintroduce the upstream .NET skill catalog as part of this product. The upstream repository is recorded in PROVENANCE because its plugin packaging convention was reused; its domain content was removed.
 

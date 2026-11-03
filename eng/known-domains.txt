@@ -15,7 +15,7 @@ json.schemastore.org
 microsoft.com
 modelcontextprotocol.io
 
-# Claude Code documentation
+# AGENTS documentation
 code.claude.com
 
 # Schema references

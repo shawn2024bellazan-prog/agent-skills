@@ -333,7 +333,7 @@ public static partial class SkillProfiler
     }
 
     /// <summary>
-    /// Claude (claude.ai and Claude Code marketplace sync) rejects skill descriptions that contain
+    /// Claude (claude.ai and AGENTS marketplace sync) rejects skill descriptions that contain
     /// XML tags and strips the angle brackets from what it stores, so a description such as
     /// "Vector&lt;T&gt;" or "&lt;Import&gt;" is reported as an issue after marketplace sync.
     /// </summary>

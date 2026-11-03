@@ -1,7 +1,7 @@
 # Agent Skills — Claude Directory Reference
 
 A plugin marketplace that documents and helps author the files and directories used to
-configure Claude Code at the project and global levels.
+configure AGENTS at the project and global levels.
 
 Each plugin focuses on one part of the directory layout. Its bundled Agent Skill explains
 the purpose, scope, loading behavior, conventions, and practical use of that part of the
@@ -16,7 +16,7 @@ present in the source repository used as a packaging reference.
 
 | Plugin | Directory or area | What it covers |
 | --- | --- | --- |
-| [agent-config](plugins/agent-config/) | Root files and `.claude/` | Project and global instructions, settings, MCP configuration, keybindings, app state, and the Claude Code configuration layout. |
+| [agent-config](plugins/agent-config/) | Root files and `.claude/` | Project and global instructions, settings, MCP configuration, keybindings, app state, and the AGENTS configuration layout. |
 | [rules](plugins/rules/) | `rules/` | Topic-scoped instructions, including optional path-based loading with frontmatter globs. |
 | [skills](plugins/skills/) | `skills/` | Reusable, invocable skill folders with a `SKILL.md` entrypoint and supporting files. |
 | [commands](plugins/commands/) | `commands/` | Single-file prompts invoked by name, including argument conventions and the relationship to skills. |
@@ -27,9 +27,9 @@ present in the source repository used as a packaging reference.
 | [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
 | [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
 
-Marketplace catalogs are maintained for Claude Code, Cursor, Codex, and GitHub:
+Marketplace catalogs are maintained for AGENTS, Cursor, Codex, and GitHub:
 
-- [Claude Code](.claude-plugin/marketplace.json)
+- [AGENTS](.claude-plugin/marketplace.json)
 - [Cursor](.cursor-plugin/marketplace.json)
 - [Codex](.agents/plugins/marketplace.json)
 - [GitHub](.github/plugin/marketplace.json)
@@ -47,7 +47,7 @@ directory containing its `SKILL.md` entrypoint and any supporting `references/`.
 │   ├── rules/                 # Repository-wide authoring guidance
 │   └── skills/                # Skills used to maintain this repository
 ├── .claude-plugin/
-│   └── marketplace.json       # Claude Code marketplace catalog
+│   └── marketplace.json       # AGENTS marketplace catalog
 ├── .cursor-plugin/
 │   └── marketplace.json       # Cursor marketplace catalog
 ├── .github/plugin/
@@ -78,7 +78,7 @@ The reference material distinguishes areas that can look similar but serve diffe
 
 - **Project configuration** lives at the project root and in `.claude/`; shared files can be committed, while local overrides remain untracked.
 - **Global configuration** lives in `~/.claude/` and `~/.claude.json` and applies across projects.
-- This repository's own `.agents/` directory is separate: it contains Codex marketplace metadata and repository-maintenance guidance, not the Claude Code directories documented by these plugins.
+- This repository's own `.agents/` directory is separate: it contains Codex marketplace metadata and repository-maintenance guidance, not the AGENTS directories documented by these plugins.
 - **Skills** package reusable instructions and supporting resources behind a `SKILL.md`.
 - **Commands** are single-file prompts; the reference explains their conventions and how they
   relate to skills.
@@ -88,13 +88,13 @@ The reference material distinguishes areas that can look similar but serve diffe
 
 Some details are host- and version-specific. Treat the skill references as documentation of
 the conventions they describe, and check the linked official documentation when validating
-behavior for a particular Claude Code release.
+behavior for a particular AGENTS release.
 
 ## Installation and use
 
-This repository is organized as a Claude Code plugin marketplace. To use it, make the
-repository available to Claude Code (for example, by cloning it locally), then add that
-marketplace from the local checkout using Claude Code's marketplace command:
+This repository is organized as a AGENTS plugin marketplace. To use it, make the
+repository available to AGENTS (for example, by cloning it locally), then add that
+marketplace from the local checkout using AGENTS's marketplace command:
 
 ```text
 /plugin marketplace add <path-to-local-checkout>
@@ -106,7 +106,7 @@ Browse the marketplace and install the reference plugins you want:
 /plugin
 ```
 
-After installation, invoke a plugin's skill by its skill name, or let Claude Code select it
+After installation, invoke a plugin's skill by its skill name, or let AGENTS select it
 when the task matches its description. The skill's `SKILL.md` is the entrypoint; consult
 its bundled `references/` for deeper details and examples.
 
@@ -154,14 +154,14 @@ individual package instructions in each package README.
 
 ## Source material and provenance
 
-The directory descriptions and examples were prepared from the Claude Code directory
+The directory descriptions and examples were prepared from the AGENTS directory
 documentation and the project/global directory screenshots referenced by the plugin READMEs.
 The repository records the upstream source used for plugin packaging conventions in
 [`PROVENANCE`](PROVENANCE). That upstream repository supplied the **plugin layout convention**;
 its .NET plugin content was removed and is not part of this marketplace.
 
 For behavior that may change between releases, consult the
-[Claude Code documentation](https://docs.claude.com/en/docs/claude-code/overview).
+[AGENTS documentation](https://docs.claude.com/en/docs/claude-code/overview).
 
 ## Contributing
 

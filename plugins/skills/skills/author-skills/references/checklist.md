@@ -24,4 +24,4 @@ Skills can bundle any supporting files: reference docs, templates, scripts. The 
 - [ ] Passwords hashed with bcrypt or argon2
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

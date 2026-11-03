@@ -14,4 +14,4 @@ Project instructions split into topic files that can load conditionally based on
 - Subdirectories work: rules/frontend/react.md is discovered automatically
 - When the main instructions file approaches 200 lines, start splitting it into rules
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

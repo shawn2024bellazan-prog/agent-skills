@@ -1,6 +1,6 @@
 {
   "name": "agent-config",
   "version": "0.1.0",
-  "description": "Reference for Claude Code root files and the project/global .claude/ directories: instructions, MCP servers, settings, keybindings, and app state.",
+  "description": "Reference for AGENTS root files and the project/global .claude/ directories: instructions, MCP servers, settings, keybindings, and app state.",
   "skills": ["./skills/"]
 }

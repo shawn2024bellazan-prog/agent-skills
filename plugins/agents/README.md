@@ -14,4 +14,4 @@ Each markdown file defines a subagent with its own system prompt, tool access, a
 - Restrict tool access per agent with the tools: frontmatter field
 - Type @ and pick an agent from the autocomplete to delegate directly
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

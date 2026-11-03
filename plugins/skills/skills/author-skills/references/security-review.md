@@ -6,4 +6,4 @@
 
 Contents: SKILL.md (entrypoint: trigger, invocability, instructions) and checklist.md (supporting file bundled with the skill).
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

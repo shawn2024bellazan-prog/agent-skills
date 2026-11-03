@@ -5,7 +5,7 @@ description: Evaluate skill description quality in frontmatter across all plugin
 
 # Evaluate Skill Description Quality
 
-This repo contains several skills for helping AI coding agents like GitHub Copilot and Claude Code with .NET-related coding tasks. Evaluate how good the description is in the YAML front matter for each skill under `plugins/**/skills/*/SKILL.md` and rate them on a scale of 1–5 where 5 is the best.
+This repo contains several skills for helping AI coding agents like GitHub Copilot and AGENTS with .NET-related coding tasks. Evaluate how good the description is in the YAML front matter for each skill under `plugins/**/skills/*/SKILL.md` and rate them on a scale of 1–5 where 5 is the best.
 
 ## What the Description Is For
 

@@ -23,4 +23,4 @@ When a change is under 10 lines, ask the user to implement it
 themselves by leaving a TODO(human) marker instead of writing it.
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

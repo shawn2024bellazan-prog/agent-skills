@@ -26,4 +26,4 @@ Rebind keyboard shortcuts in the interactive CLI. Run /keybindings to create or 
 }
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

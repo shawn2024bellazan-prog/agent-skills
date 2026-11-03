@@ -2,9 +2,9 @@
 
 Thanks for helping improve the Agent Skills directory-reference marketplace.
 
-This repository documents and packages reusable skills for understanding and authoring the Claude Code project and global directory layout. Contributions should improve the accuracy, clarity, or practical usefulness of that reference material.
+This repository documents and packages reusable skills for understanding and authoring the AGENTS project and global directory layout. Contributions should improve the accuracy, clarity, or practical usefulness of that reference material.
 
-The user-facing reference plugins document Claude Code's project `.claude/` directory and global `~/.claude/` directory, plus root files such as `CLAUDE.md`, `.mcp.json`, and `.worktreeinclude`. The repository's own `.agents/` folder is separate and contains Codex marketplace metadata and repository-maintenance assets.
+The user-facing reference plugins document AGENTS's project `.claude/` directory and global `~/.claude/` directory, plus root files such as `CLAUDE.md`, `.mcp.json`, and `.worktreeinclude`. The repository's own `.agents/` folder is separate and contains Codex marketplace metadata and repository-maintenance assets.
 
 ## Repository layout
 
@@ -12,7 +12,7 @@ The user-facing reference plugins document Claude Code's project `.claude/` dire
       rules/                       Repository authoring guidance
       skills/                      Skills used to maintain this repository
     .claude-plugin/
-      marketplace.json             Claude Code marketplace
+      marketplace.json             AGENTS marketplace
     .cursor-plugin/
       marketplace.json             Cursor marketplace
     .agents/plugins/

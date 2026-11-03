@@ -32,4 +32,4 @@ Use checklist.md in this skill directory for the full review checklist.
 Report findings with severity ratings and remediation steps.
 ```
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

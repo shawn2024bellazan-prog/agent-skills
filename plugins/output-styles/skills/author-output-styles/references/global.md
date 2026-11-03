@@ -14,4 +14,4 @@ Each markdown file defines an output style: a set of instructions that, by defau
 - Set keep-coding-instructions: true in frontmatter to keep the default task instructions alongside your additions
 - Switching styles mid-session applies from your next message; in the terminal, a style file you create or edit mid-session is picked up after a restart
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

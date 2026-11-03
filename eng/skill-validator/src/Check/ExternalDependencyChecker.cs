@@ -19,11 +19,11 @@ public static partial class ExternalDependencyChecker
         "ask_user", "bash", "powershell", "grep", "glob", "view", "sql",
         "report_intent", "store_memory", "fetch_copilot_cli_documentation",
         // Cross-host spellings that are not case-insensitive matches of the names
-        // above. Each supported .agent.md host (Copilot CLI / VS Code, Claude Code,
+        // above. Each supported .agent.md host (Copilot CLI / VS Code, AGENTS,
         // Gemini CLI) spells some built-in tools differently. Native Codex agents use
         // .codex/agents/*.toml and do not expose a matching generic tools array:
         //   "agent"             Copilot CLI / VS Code subagent fan-out (Claude: "task")
-        //   "write"             Claude Code file creation   (Copilot: "create", Gemini: "write_file")
+        //   "write"             AGENTS file creation   (Copilot: "create", Gemini: "write_file")
         //   "execute"           Copilot CLI / VS Code run-command (Claude: "bash", Gemini: "run_shell_command")
         //   "read_file"         Gemini CLI file read        (Copilot: "read", Claude: "Read")
         //   "replace"           Gemini CLI file edit        (Copilot: "edit", Claude: "Edit")
@@ -152,7 +152,7 @@ public static partial class ExternalDependencyChecker
     /// array holds interchangeable spellings for the <em>same</em> capability
     /// (any one suffices on that host) — complementary tools that do different
     /// things belong to separate capabilities. Every host (Copilot CLI / VS Code,
-    /// Claude Code, Gemini CLI) matches tool names by exact spelling, so an agent
+    /// AGENTS, Gemini CLI) matches tool names by exact spelling, so an agent
     /// that lists only one host's spelling silently loses the capability on the
     /// others. A host with an empty list has no <c>tools:</c>-level spelling for
     /// the capability and is not required.
@@ -166,7 +166,7 @@ public static partial class ExternalDependencyChecker
     /// Where one host exposes a capability through a single broad tool while
     /// another splits it in two, the capability is split to match the finer
     /// granularity — e.g. the Copilot CLI's single <c>search</c> covers both
-    /// "find files" and "search file contents", which Claude Code and Gemini CLI
+    /// "find files" and "search file contents", which AGENTS and Gemini CLI
     /// expose as separate tools (<c>Glob</c>/<c>Grep</c>, <c>glob</c>/
     /// <c>grep_search</c>). This lets the check flag a partial declaration such
     /// as <c>Glob</c> without <c>Grep</c>. Names identical modulo case
@@ -191,7 +191,7 @@ public static partial class ExternalDependencyChecker
     /// Check that an agent's <c>tools:</c> list is portable across every
     /// supported .agent.md host. When a capability is granted for one host (e.g. the
     /// Copilot CLI alias <c>edit</c>) but the equivalent for another host
-    /// (Claude Code's <c>Edit</c> or Gemini CLI's <c>replace</c>) is absent, the
+    /// (AGENTS's <c>Edit</c> or Gemini CLI's <c>replace</c>) is absent, the
     /// agent works on one host and is silently tool-less on the others. Returns
     /// advisory messages for human review. Entries matching the allowlist are
     /// skipped.
@@ -211,7 +211,7 @@ public static partial class ExternalDependencyChecker
             (string Label, string[] Names)[] hosts =
             [
                 ("the Copilot CLI / VS Code", capability.CopilotCli),
-                ("Claude Code", capability.ClaudeCode),
+                ("AGENTS", capability.ClaudeCode),
                 ("Gemini CLI", capability.GeminiCli),
             ];
 

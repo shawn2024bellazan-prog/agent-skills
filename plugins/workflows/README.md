@@ -13,4 +13,4 @@ Each .js file is a dynamic workflow: a script the runtime executes to spawn and 
 - Save a run from /workflows with s to create one of these
 - A project workflow takes precedence over a personal one in the global workflows/ directory with the same name
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._

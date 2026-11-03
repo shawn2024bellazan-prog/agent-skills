@@ -85,7 +85,7 @@ public static class PluginProfiler
         }
 
         // --- Agents path validation (optional, but must be explicit file paths) ---
-        // Claude Code requires explicit file paths (e.g., "./agents/my-agent.agent.md"),
+        // AGENTS requires explicit file paths (e.g., "./agents/my-agent.agent.md"),
         // not directory paths. Directory paths cause "agents: Invalid input" validation errors.
         foreach (var agentPath in plugin.AgentPaths)
         {
@@ -101,7 +101,7 @@ public static class PluginProfiler
             }
             else if (Directory.Exists(resolved!))
             {
-                errors.Add($"Plugin agent path '{agentPath}' is a directory. Claude Code requires explicit file paths in the 'agents' array, e.g., './agents/my-agent.agent.md'.");
+                errors.Add($"Plugin agent path '{agentPath}' is a directory. AGENTS requires explicit file paths in the 'agents' array, e.g., './agents/my-agent.agent.md'.");
             }
             else if (!File.Exists(resolved!))
             {

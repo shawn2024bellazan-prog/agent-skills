@@ -14,4 +14,4 @@ Commands and skills are now the same mechanism. For new workflows, use skills/ i
 - If a skill and command share a name, the skill takes precedence
 - New commands should usually be skills instead; command files still work
 
-_Source: Claude Code docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
+_Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\docs\claude-directory-screenshots)._
