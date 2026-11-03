@@ -1,0 +1,7 @@
+upstream: https://github.com/dotnet/skills
+commit: 95e7d0cb7994d47b5789baa68e13f7a2f348b956
+commit-date: 2026-10-28T16:58:22-07:00
+retrieved: 2026-11-03T07:22:48Z
+license: MIT
+method: file copy of the working tree at that commit, no upstream history
+plan-hash: 53e6fe671f381d2b7282b8ac3247cc02fff9d8115af661ed10743603413efa96
