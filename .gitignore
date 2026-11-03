@@ -449,3 +449,4 @@ eval-results/
 
 # Local design plan kept out of the PR
 docs/design/pr-triage-workflows-plan.md
+.agents/settings.local.json

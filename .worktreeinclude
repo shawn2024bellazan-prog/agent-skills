@@ -1,0 +1,2 @@
+# Gitignored files to copy into new worktrees, one pattern per line
+.agents/settings.local.json
