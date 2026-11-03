@@ -5,7 +5,7 @@
     Computes and (optionally) materializes per-plugin release versions.
 
 .DESCRIPTION
-    dotnet/skills is consumed directly from the repository (no published mirror), so every
+    This marketplace is consumed directly from its repository (no published mirror), so every
     plugin's version must be written into the checked-in manifests. Each plugins/<name>
     directory carries a version.json that declares its major.minor release base and the
     files that are excluded from version-bearing content.

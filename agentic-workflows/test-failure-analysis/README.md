@@ -15,10 +15,10 @@ consumer's collector before this workflow is invoked.
 From the root of the consuming repository:
 
 ```powershell
-gh aw add-wizard dotnet/skills/agentic-workflows/test-failure-analysis@main
+gh aw add-wizard shawn2024bellazan-prog/agent-skills/agentic-workflows/test-failure-analysis@master
 ```
 
-Pin production installations to a release tag or commit SHA instead of `main`.
+Pin production installations to a release tag or commit SHA instead of `master`.
 The package installs:
 
 - `.github/workflows/test-failure-analysis.md`
@@ -49,10 +49,10 @@ distribution package.
 The consumer owns a conventional GitHub Actions workflow with two deterministic
 stages:
 
-1. **Collector** — reads repository/CI-specific results, normalizes them without
+1. **Collector** â€” reads repository/CI-specific results, normalizes them without
    AI, writes `metadata.json` plus JSON, JSONL, or normalized text evidence, and
    uploads one Actions artifact.
-2. **Analyst** — calls the installed
+2. **Analyst** â€” calls the installed
    `.github/workflows/test-failure-analysis.lock.yml`, passing the artifact run
    ID/name and trusted scalar identity metadata.
 
@@ -149,7 +149,7 @@ Use `category` values `failure`, `retry`, `hang`, `timeout`, `crash`, or
 Retry/flake records must preserve every observed attempt and final outcome.
 Duration records must include a comparable baseline, sample count, and
 measurement window. Missing history must be marked `partial` or `absent`; it
-cannot support “no recurrence” claims.
+cannot support â€œno recurrenceâ€ claims.
 
 For portable historical analysis, collectors should inspect no more than the
 latest 8 comparable builds or 14 days, whichever is smaller, and select no more
@@ -244,7 +244,7 @@ never contacts the external system.
 
 ## Offline decision evaluation
 
-From a `dotnet/skills` checkout:
+From a `shawn2024bellazan-prog/agent-skills` checkout:
 
 ```powershell
 dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate `

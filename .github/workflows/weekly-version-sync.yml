@@ -1,10 +1,10 @@
 # Weekly backstop. Computes every plugin's authoritative release version on
-# `main` and, for any plugin whose content changed without a matching version
+# `master` and, for any plugin whose content changed without a matching version
 # checkpoint, opens ONE pull request that stamps the versions and explains why.
 #
 # This is the safety net that makes per-PR stamping optional: anything a
 # contributor or the /version-bump command missed is reconciled here. Running on
-# main (post-merge) is the single source of truth, so concurrent predictions are
+# master (post-merge) is the single source of truth, so concurrent predictions are
 # reconciled against the latest release checkpoint.
 name: weekly-version-sync
 
@@ -24,12 +24,12 @@ permissions:
 jobs:
   sync:
     # Never run on forks (avoids burning a fork owner's Actions minutes).
-    if: github.repository == 'dotnet/skills'
+    if: github.repository == 'shawn2024bellazan-prog/agent-skills'
     runs-on: ubuntu-latest
     env:
       SYNC_BRANCH: bot/weekly-version-sync
     steps:
-      - name: Checkout main
+      - name: Checkout master
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
         with:
           fetch-depth: 0
@@ -39,7 +39,7 @@ jobs:
         id: stamp
         shell: pwsh
         run: |
-          # Authoritative compute on main HEAD; write drifted plugins in place.
+          # Authoritative compute on master HEAD; write drifted plugins in place.
           $report = & "$PWD/eng/version/Sync-PluginVersions.ps1" -OnlyChanged -Write | ConvertFrom-Json
 
           if (-not $report -or $report.Count -eq 0) {
@@ -101,7 +101,7 @@ jobs:
             echo "Updated existing PR #$EXISTING"
           else
             gh pr create \
-              --base main \
+              --base master \
               --head "$SYNC_BRANCH" \
               --title "Weekly plugin version sync" \
               --body-file pr-body.md

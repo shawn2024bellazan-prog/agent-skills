@@ -5,17 +5,21 @@ on:
     paths:
       - "eng/version/**"
       - "plugins/*/plugin.json"
+      - "plugins/*/version.json"
       - "plugins/*/.claude-plugin/plugin.json"
+      - "plugins/*/.codex-plugin/plugin.json"
       - ".github/workflows/plugin-versioning-tests.yml"
       - ".github/workflows/version-bump-command.yml"
       - ".github/workflows/weekly-version-sync.yml"
       - "CONTRIBUTING.md"
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - "eng/version/**"
       - "plugins/*/plugin.json"
+      - "plugins/*/version.json"
       - "plugins/*/.claude-plugin/plugin.json"
+      - "plugins/*/.codex-plugin/plugin.json"
       - ".github/workflows/plugin-versioning-tests.yml"
       - ".github/workflows/version-bump-command.yml"
       - ".github/workflows/weekly-version-sync.yml"

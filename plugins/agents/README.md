@@ -2,7 +2,7 @@
 
 > Specialized subagents with their own context window
 
-**Scope:** project  (.agents/agents/)
+**Scope:** project  (.claude/agents/)
 
 **When it loads:** Runs in its own context window when you or the agent invoke it.
 

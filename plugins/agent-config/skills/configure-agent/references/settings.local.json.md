@@ -2,7 +2,7 @@
 
 > Your personal settings overrides for this project
 
-**Scope:** project  (.agents/settings.local.json, gitignored)
+**Scope:** project  (.claude/settings.local.json, gitignored)
 
 **When it loads:** Highest of the user-editable settings files; CLI flags and managed settings still take precedence.
 

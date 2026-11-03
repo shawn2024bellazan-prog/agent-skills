@@ -4,13 +4,13 @@
     "name": "Tooensure"
   },
   "metadata": {
-    "description": "One reference plugin per directory of the Claude directory layout, using the dotnet/skills plugin convention."
+    "description": "Reference plugins for authoring and understanding the Claude Code project and global directory layout."
   },
   "plugins": [
     {
       "name": "agent-config",
       "source": "./plugins/agent-config",
-      "description": "Reference for root files and the .agents directory: instructions, MCP servers, settings, keybindings, app state."
+      "description": "Reference for Claude Code root files and project/global .claude/ directories: instructions, MCP servers, settings, keybindings, app state."
     },
     {
       "name": "rules",

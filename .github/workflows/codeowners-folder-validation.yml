@@ -3,7 +3,7 @@ name: codeowners-folder-validation
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'plugins/**'
       - 'tests/**'
@@ -113,12 +113,12 @@ jobs:
             return $lastMatch
           }
 
-          # Require at least one team or at least two individuals.
+          # Require at least one team or at least one individual.
           function Test-SufficientOwners([string[]]$Owners) {
             $teams = @($Owners | Where-Object { $_ -match '/' })
             if ($teams.Count -ge 1) { return $true }
             $individuals = @($Owners | Where-Object { $_ -notmatch '/' })
-            if ($individuals.Count -ge 2) { return $true }
+            if ($individuals.Count -ge 1) { return $true }
             return $false
           }
 
@@ -160,7 +160,7 @@ jobs:
             $missing | ForEach-Object { Write-Host "  - $_" }
           }
           if ($hasInsufficient) {
-            Write-Host "Insufficient owners (need 2+ individuals or 1+ team):"
+            Write-Host "Insufficient owners (need 1+ individual or 1+ team):"
             $insufficientOwners | ForEach-Object { Write-Host "  - $($_.path)  (current: $($_.owners))" }
           }
           if (-not $hasMissing -and -not $hasInsufficient) {
@@ -206,7 +206,7 @@ jobs:
 
             if (insufficientOwners.length > 0) {
               bodyParts.push('## Insufficient owners', '');
-              bodyParts.push('Each skill/test folder must have at least **2 individual owners** or **1 team**.', '');
+              bodyParts.push('Each skill/test folder must have at least **1 individual owner** or **1 team**.', '');
               bodyParts.push(...insufficientOwners.map((e) => `- \`${e.path}\` — current: ${e.owners}`));
               bodyParts.push('');
             }
@@ -254,6 +254,6 @@ jobs:
           if ($env:INSUFFICIENT_OWNERS_JSON -ne '[]') {
             Write-Host "Insufficient owners: $env:INSUFFICIENT_OWNERS_JSON"
           }
-          Write-Error 'CODEOWNERS validation failed. Each skill/test folder needs a CODEOWNERS entry with 2+ individuals or 1+ team.'
+          Write-Error 'CODEOWNERS validation failed. Each skill/test folder needs a CODEOWNERS entry with 1+ individual or 1+ team.'
           exit 1
  

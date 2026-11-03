@@ -2,7 +2,7 @@
 
 > Example style that adds explanations and leaves small changes for you
 
-**Scope:** global  (C:\Users\pmcro\.agents\output-styles\teaching.md)
+**Scope:** global  (C:\Users\pmcro\.claude\output-styles\teaching.md)
 
 **When it loads:** Active when outputStyle in settings is set to teaching.
 

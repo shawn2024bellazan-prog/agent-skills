@@ -1,16 +1,30 @@
-# Marketplaces in this repo
+# Marketplace manifests
 
-This repo is a file copy of dotnet/skills (MIT). PROVENANCE records the exact
-upstream commit.
+This repository publishes the same ten reference plugins through multiple host marketplace catalogs. The catalogs are maintained as synchronized copies; there is currently no manifest generator, so update and validate all copies together.
 
-dotnet/skills ships marketplace manifests for three hosts:
+## Catalog locations
 
-- `.claude-plugin/`: Claude Code plugin marketplace files
-- `.agents/plugins/marketplace.json`: Codex marketplace manifest
-- `.cursor-plugin/`: Cursor plugin marketplace files
+- .claude-plugin/marketplace.json — Claude Code marketplace.
+- .cursor-plugin/marketplace.json — Cursor marketplace.
+- .agents/plugins/marketplace.json — Codex marketplace.
+- .github/plugin/marketplace.json — GitHub-hosted plugin catalog.
 
-In this repo these manifests are treated as generated outputs of the `.agents`
-source, as if the upstream project had produced them from it. That is a
-convention adopted here. It is not a statement about upstream's tooling, and no
-generator is included. Until one exists, edit the manifests by hand and keep
-them in step with each other.
+Each catalog must contain the same plugin names and relative source paths. Host-specific metadata may differ where a host requires a different schema, but a plugin must never be advertised by a catalog unless its source directory exists.
+
+## Current plugin set
+
+The marketplace contains ten directory-reference plugins: agent-config, agent-memory, agents, commands, output-styles, projects, rules, skills, themes, and workflows.
+
+Each plugin lives under plugins/<name>/ and includes a root plugin.json, Claude and Codex compatibility metadata, and a skills/ directory. The skill entrypoint is skills/<skill-name>/SKILL.md; supporting material belongs in that skill's references/, assets/, or scripts/ directories as appropriate.
+
+## Updating catalogs
+
+When adding, renaming, or removing a plugin:
+
+1. Update all four marketplace catalogs.
+2. Verify every catalog's plugin names and source values match.
+3. Verify each referenced directory exists and contains its expected plugin metadata and skill entrypoint.
+4. Update the root README and relevant plugin documentation.
+5. Run JSON parsing and marketplace consistency checks before committing.
+
+The upstream .NET skills repository supplied the original packaging convention only. Its .NET plugin collection is not part of this marketplace. See PROVENANCE for the exact source commit and retrieval details.

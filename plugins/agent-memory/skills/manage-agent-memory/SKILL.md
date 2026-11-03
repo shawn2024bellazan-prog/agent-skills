@@ -1,6 +1,6 @@
 ---
 name: manage-agent-memory
-description: Manage persistent subagent memory in agent-memory/. Use when giving a subagent memory or deciding project, local or user memory.
+description: "Manage persistent subagent memory in agent-memory. Use when assigning subagent memory or choosing project, local, or user memory."
 ---
 
 # Agent memory
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Project: .agents/agent-memory/<agent-name>/MEMORY.md. Local: agent-memory-local/. Global: C:\Users\pmcro\.agents\agent-memory\.
+Project: .claude/agent-memory/<agent-name>/MEMORY.md. Local: agent-memory-local/. Global: C:\Users\pmcro\.claude\agent-memory\.
 
 ## How to author it
 

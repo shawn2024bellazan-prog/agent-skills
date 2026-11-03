@@ -2,7 +2,7 @@
 
 > Personal single-file commands available in every project
 
-**Scope:** global  (C:\Users\pmcro\.agents\commands\)
+**Scope:** global  (C:\Users\pmcro\.claude\commands\)
 
 **When it loads:** The user types /command-name in any project.
 

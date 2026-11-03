@@ -76,7 +76,7 @@ def assert_same(expected: Path, actual: Path, repo_root: Path) -> None:
     if expected.read_bytes() != actual.read_bytes():
         raise RuntimeError(
             f"{relative} is stale; run 'gh aw compile --strict --validate "
-            f"--schedule-seed dotnet/skills --action-mode action "
+            f"--schedule-seed shawn2024bellazan-prog/agent-skills --action-mode action "
             f"--action-tag {GH_AW_ACTIONS_SHA}'"
         )
 
@@ -126,7 +126,7 @@ def validate_active_workflows(repo_root: Path) -> None:
                 "--strict",
                 "--validate",
                 "--schedule-seed",
-                "dotnet/skills",
+                "shawn2024bellazan-prog/agent-skills",
                 "--action-mode",
                 "action",
                 "--action-tag",
@@ -350,7 +350,7 @@ def validate_package(repo_root: Path, manifest: Path) -> None:
                 "--strict",
                 "--validate",
                 "--schedule-seed",
-                "dotnet/skills",
+                "shawn2024bellazan-prog/agent-skills",
                 "--action-mode",
                 "action",
                 "--action-tag",

@@ -3,7 +3,7 @@
 # disabled until a maintainer promotes the change to a trusted repository branch.
 #
 # IMPORTANT: The /evaluate command runs the workflow YAML from the default
-# branch (main), NOT from the PR branch, for every trigger below (issue_comment,
+# branch (master), NOT from the PR branch, for every trigger below (issue_comment,
 # pull_request_review, pull_request_target, workflow_dispatch). Changes to this
 # file in a PR will not take effect until merged. The Vally harness runs the
 # target content checked out from the gate-bound commit, so skill, agent, and
@@ -81,7 +81,7 @@ on:
           - full
           - newer
       publish_eval_data:
-        description: "Publish generated evaluation data to the shared dashboard. Only allowed for manual runs on main without a PR number."
+        description: "Publish generated evaluation data to the shared dashboard. Only allowed for manual runs on master without a PR number."
         type: boolean
         required: false
         default: false
@@ -1115,7 +1115,7 @@ jobs:
       needs.discover.outputs.has_plugins == 'true' &&
       needs.gate.outputs.is_fork != 'true' &&
       (
-        github.ref == 'refs/heads/main' ||
+        github.ref == 'refs/heads/master' ||
         needs.gate.result == 'success'
       )
     concurrency:
@@ -1282,7 +1282,7 @@ jobs:
       needs.discover.outputs.has_plugins == 'true' &&
       needs.gate.outputs.is_fork != 'true' &&
       (
-        github.ref == 'refs/heads/main' ||
+        github.ref == 'refs/heads/master' ||
         needs.gate.result == 'success'
       )
     runs-on: ubuntu-latest
@@ -1494,7 +1494,7 @@ jobs:
           inputs.publish_eval_data &&
           inputs.pr_number == '' &&
           github.repository == 'dotnet/skills' &&
-          github.ref == 'refs/heads/main' &&
+          github.ref == 'refs/heads/master' &&
           needs.evaluate.result == 'success'
         )
       )
@@ -1701,7 +1701,7 @@ jobs:
         (
           github.event_name == 'workflow_dispatch' &&
           inputs.pr_number == '' &&
-          github.ref == 'refs/heads/main' &&
+          github.ref == 'refs/heads/master' &&
           (
             !inputs.publish_eval_data ||
             (

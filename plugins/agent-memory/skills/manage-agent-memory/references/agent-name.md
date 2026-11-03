@@ -2,7 +2,7 @@
 
 > One folder per subagent
 
-**Scope:** project  (.agents/agent-memory/agent-name/)
+**Scope:** project  (.claude/agent-memory/agent-name/)
 
 Contents: MEMORY.md, which the subagent writes and maintains automatically. The agent writes this folder.
 

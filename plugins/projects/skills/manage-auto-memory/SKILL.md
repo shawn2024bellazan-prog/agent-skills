@@ -1,6 +1,6 @@
 ---
 name: manage-auto-memory
-description: Understand and manage auto memory in projects/<project>/memory/. Use when reviewing, trimming or toggling the notes the agent keeps per project.
+description: Understand and manage global automatic memory stored separately for each project. Use when reviewing, trimming, or toggling the notes the agent keeps.
 ---
 
 # Auto memory
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Global only: C:\Users\pmcro\.agents\projects\<project>\memory\ (MEMORY.md index plus topic files).
+Global only: C:\Users\pmcro\.claude\projects\<project>\memory\ (MEMORY.md index plus topic files).
 
 ## How to author it
 

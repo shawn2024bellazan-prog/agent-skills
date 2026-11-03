@@ -1,6 +1,6 @@
 ---
 name: author-commands
-description: Author single-file commands for commands/. Use when adding a /name prompt; prefer a skill for new workflows.
+description: "Author single-file slash commands. Use when adding a named prompt; prefer a skill for new workflows that need supporting files."
 ---
 
 # Commands
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Project: .agents/commands/*.md. Global: C:\Users\pmcro\.agents\commands\.
+Project: .claude/commands/*.md. Global: C:\Users\pmcro\.claude\commands\.
 
 ## How to author it
 

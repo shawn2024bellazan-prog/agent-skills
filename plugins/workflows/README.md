@@ -2,7 +2,7 @@
 
 > Dynamic workflow scripts that orchestrate many subagents
 
-**Scope:** project  (.agents/workflows/)
+**Scope:** project  (.claude/workflows/)
 
 **When it loads:** Loaded at startup; each file becomes a /<name> command.
 

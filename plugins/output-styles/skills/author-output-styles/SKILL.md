@@ -1,6 +1,6 @@
 ---
 name: author-output-styles
-description: Author output styles for output-styles/. Use when adding a custom response mode such as teaching or review.
+description: "Author custom output styles. Use when adding a response mode such as teaching or review."
 ---
 
 # Output styles
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Project: .agents/output-styles/. Global: C:\Users\pmcro\.agents\output-styles\.
+Project: .claude/output-styles/. Global: C:\Users\pmcro\.claude\output-styles\.
 
 ## How to author it
 

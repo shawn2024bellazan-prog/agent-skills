@@ -2,7 +2,7 @@
 
 > Test conventions scoped to test files
 
-**Scope:** project  (.agents/rules/testing.md)
+**Scope:** project  (.claude/rules/testing.md)
 
 **When it loads:** Loaded when a file matching the paths: globs below is read, written, or edited.
 

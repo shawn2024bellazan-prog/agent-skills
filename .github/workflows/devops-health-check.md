@@ -1327,11 +1327,11 @@ inventory does not reach the requested cutoff within that budget, mark only
 that scope unavailable. A full first page is not evidence that pagination is
 unavailable. Do not rely on implicit MCP pagination.
 
-**P1 — Failed workflow runs on `main` in last 24h:**
+**P1 — Failed workflow runs on `master` in last 24h:**
 ```
 actions_list: method=list_workflow_runs, perPage=100, page={page}
 ```
-Filter locally to `branch=main`, `conclusion=failure`, and runs created within
+Filter locally to `branch=master`, `conclusion=failure`, and runs created within
 the last 24 hours. For each failed run:
 - Use paginated Actions job data for that run and inspect only failed job logs
   when needed to identify the failed step. P1 is complete only when both the
@@ -1347,7 +1347,7 @@ the last 24 hours. For each failed run:
 ```
 actions_list: method=list_workflow_runs, perPage=100, page={page}
 ```
-- Filter locally to `branch=main`, `conclusion` in `cancelled` or `timed_out`,
+- Filter locally to `branch=master`, `conclusion` in `cancelled` or `timed_out`,
   and the last 24 hours.
 - Inspect paginated Actions job data for every matched run. Emit one finding per
   job whose conclusion is `cancelled` or `timed_out`. If a run was cancelled
@@ -1361,7 +1361,7 @@ actions_list: method=list_workflow_runs, perPage=100, page={page}
 ```
 actions_list: method=list_workflow_runs, resource_id=evaluation.yml, perPage=100, page={page}
 ```
-Filter locally to `branch=main` and compute average run duration over the last
+Filter locally to `branch=master` and compute average run duration over the last
 14 days.
 - 🟡 Warning if avg > 50 min (83% of 60-min timeout)
 - 🔴 Critical if avg > 55 min
@@ -1371,7 +1371,7 @@ Filter locally to `branch=main` and compute average run duration over the last
 ```
 actions_list: method=list_workflow_runs, perPage=100, page={page}
 ```
-Filter locally to `branch=main` and the last 7 days. Group by workflow name and
+Filter locally to `branch=master` and the last 7 days. Group by workflow name and
 compute success/failure ratio.
 - 🔵 Info (metric only — reported in trends table, not fingerprinted)
 
@@ -1404,7 +1404,7 @@ Also include in the finding details:
 ```
 actions_list: method=list_workflow_runs, resource_id=evaluation.yml, perPage=100, page={page}
 ```
-Filter locally to scheduled runs on `main` created within the last 24 hours.
+Filter locally to scheduled runs on `master` created within the last 24 hours.
 Compute:
 - Total scheduled runs, cancelled count, completed count
 - Cancellation rate = cancelled / total
@@ -1710,7 +1710,7 @@ DEVOPS_HEALTH_INVESTIGATION_ROWS_SLOT_V1
 | Metric | Today | 7d Avg | Δ | Trend |
 |--------|-------|--------|---|-------|
 | Eval duration (min) | {today} | {avg} | {delta} | {arrow} |
-| Eval success rate (main) | {today} | {avg} | {delta} | {arrow} |
+| Eval success rate (master) | {today} | {avg} | {delta} | {arrow} |
 | Eval success rate (all branches) | {today} | {avg} | {delta} | {arrow} |
 | Eval scheduled cancellation rate | {today} | {avg} | {delta} | {arrow} |
 | Workflow failure rate (7d) | {today} | {avg} | {delta} | {arrow} |

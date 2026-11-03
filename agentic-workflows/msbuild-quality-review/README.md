@@ -16,10 +16,10 @@ the restricted GitHub tools and is never checked out or executed.
 From the root of the consuming repository:
 
 ```powershell
-gh aw add-wizard dotnet/skills/agentic-workflows/msbuild-quality-review@main
+gh aw add-wizard shawn2024bellazan-prog/agent-skills/agentic-workflows/msbuild-quality-review@master
 ```
 
-Pin production installations to a release tag or commit SHA instead of `main`.
+Pin production installations to a release tag or commit SHA instead of `master`.
 
 The package installs:
 
@@ -69,7 +69,7 @@ gate against the generated lock file before merging.
 
 ## Offline decision evaluation
 
-From a `dotnet/skills` checkout:
+From a `shawn2024bellazan-prog/agent-skills` checkout:
 
 ```powershell
 dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate `

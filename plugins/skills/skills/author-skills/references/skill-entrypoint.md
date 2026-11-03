@@ -2,7 +2,7 @@
 
 > Entrypoint: trigger, invocability, instructions
 
-**Scope:** project  (.agents/skills/security-review/SKILL.md)
+**Scope:** project  (.claude/skills/security-review/SKILL.md)
 
 **When it loads:** The user types /security-review <target>; the agent cannot auto-invoke this skill.
 

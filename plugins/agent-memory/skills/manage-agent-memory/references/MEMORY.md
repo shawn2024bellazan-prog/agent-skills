@@ -2,7 +2,7 @@
 
 > The subagent writes and maintains this file automatically
 
-**Scope:** project  (.agents/agent-memory/agent-name/MEMORY.md)
+**Scope:** project  (.claude/agent-memory/agent-name/MEMORY.md)
 
 **When it loads:** Loaded into the subagent system prompt when the subagent starts.
 

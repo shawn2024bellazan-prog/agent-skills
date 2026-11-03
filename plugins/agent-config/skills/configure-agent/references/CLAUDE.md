@@ -2,11 +2,11 @@
 
 > Project instructions the agent reads every session
 
-**Scope:** project  (AGENTS.md at the repo root)
+**Scope:** project  (CLAUDE.md at the repo root; AGENTS.md can be used as an alternative)
 
 **When it loads:** Loaded into context at the start of every session.
 
-Project-specific instructions that shape how the agent works in this repository. Put your conventions, common commands, and architectural context here so it operates with the same assumptions your team does. In this repo AGENTS.md plays this role. The example is for a TypeScript and React project; the capture was cut off after the Rules heading.
+Project-specific instructions shape how Claude Code works in a repository. Put conventions, common commands, and architectural context here so it operates with the same assumptions as the team. Claude Code can read an existing AGENTS.md instead of CLAUDE.md when a repository uses that filename for shared agent instructions. The screenshot example is for a TypeScript and React project; the capture was cut off after the Rules heading.
 
 ## Tips
 

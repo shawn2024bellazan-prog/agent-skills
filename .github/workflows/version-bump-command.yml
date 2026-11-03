@@ -1,12 +1,12 @@
 # Admin-triggered version stamping. A maintainer comments `/version-bump` on a
 # PR; this computes each changed plugin's post-merge release version and writes
-# it into both manifests on the PR branch, then pushes the commit.
+# it into all three host manifests on the PR branch, then pushes the commit.
 #
 # Scope: same-repo (in-repo) branches only — the workflow cannot push to a fork's
 # branch. Fork PRs are deferred to the weekly backstop (weekly-version-sync.yml).
 #
 # NOTE: issue_comment always runs the workflow YAML from the default branch, so
-# edits here only take effect once merged to main.
+# edits here only take effect once merged to master.
 name: version-bump-command
 
 on:
@@ -91,13 +91,13 @@ jobs:
 
       # SECURITY: this job runs in the privileged default-branch context with a
       # contents:write token. Never execute tooling that the PR author controls.
-      # Overlay the version script from main; the PR's plugin content is data.
-      - name: Pin trusted tooling from main
+      # Overlay the version script from master; the PR's plugin content is data.
+      - name: Pin trusted tooling from master
         if: steps.pr.outputs.is_fork == 'false'
         run: |
           # NOTE: do NOT pass --depth here. A shallow fetch writes .git/shallow for the whole
           # repository. The version script needs complete first-parent history.
-          git fetch --no-tags origin main
+          git fetch --no-tags origin master
           git checkout FETCH_HEAD -- eng/version/Sync-PluginVersions.ps1
           # `git checkout <ref> -- <paths>` writes the overlay into the index as well as the working
           # tree, i.e. it STAGES these files. Unstage them immediately so the index only ever holds

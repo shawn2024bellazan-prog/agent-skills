@@ -18,11 +18,11 @@ that can be installed into other repositories. The workflow sources are kept out
 Install the complete collection:
 
 ```powershell
-gh aw add-wizard dotnet/skills/agentic-workflows@main
+gh aw add-wizard shawn2024bellazan-prog/agent-skills/agentic-workflows@master
 ```
 
 Or install an individual package using the command in its README. Pin production
-installations to a release tag or commit SHA instead of `main`.
+installations to a release tag or commit SHA instead of `master`.
 
 Installed workflows are tracked by `source:` metadata. Pull compatible updates into a
 consumer repository with:

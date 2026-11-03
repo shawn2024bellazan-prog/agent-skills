@@ -2,7 +2,7 @@
 
 > Supporting file bundled with the skill
 
-**Scope:** project  (.agents/skills/security-review/checklist.md)
+**Scope:** project  (.claude/skills/security-review/checklist.md)
 
 **When it loads:** The agent reads it on demand while running the skill.
 

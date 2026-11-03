@@ -2,7 +2,7 @@
 
 > Permissions, hooks, and configuration
 
-**Scope:** project  (.agents/settings.json)
+**Scope:** project  (.claude/settings.json)
 
 **When it loads:** Overrides the global settings.json. Local settings, CLI flags, and managed settings override this.
 

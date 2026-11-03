@@ -2,7 +2,7 @@
 
 > Custom instruction sets that adjust how the agent works
 
-**Scope:** global  (C:\Users\pmcro\.agents\output-styles\)
+**Scope:** global  (C:\Users\pmcro\.claude\output-styles\)
 
 **When it loads:** Files read at startup; the style you select with outputStyle applies to every response.
 

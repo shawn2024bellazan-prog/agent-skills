@@ -2,7 +2,7 @@
 
 > Custom color themes
 
-**Scope:** global  (C:\Users\pmcro\.agents\themes\)
+**Scope:** global  (C:\Users\pmcro\.claude\themes\)
 
 **When it loads:** Read at session start and hot-reloaded when files change. Listed in /theme.
 

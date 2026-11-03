@@ -15,6 +15,12 @@ json.schemastore.org
 microsoft.com
 modelcontextprotocol.io
 
+# Claude Code documentation
+code.claude.com
+
+# Schema references
+schemastore.org
+
 # Tools
 aka.ms/dotnet-trace
 aka.ms/perfcollect

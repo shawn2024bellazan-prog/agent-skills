@@ -11,7 +11,7 @@ on:
       - "eng/agentic-workflows/**"
       - "tests/agentic-workflows/**"
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - ".github/agents/**"
       - ".github/aw/**"

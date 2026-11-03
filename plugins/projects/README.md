@@ -2,7 +2,7 @@
 
 > Auto memory: the agent notes to itself, per project
 
-**Scope:** global  (C:\Users\pmcro\.agents\projects\)
+**Scope:** global  (C:\Users\pmcro\.claude\projects\)
 
 **When it loads:** MEMORY.md is loaded at session start; topic files are read on demand.
 

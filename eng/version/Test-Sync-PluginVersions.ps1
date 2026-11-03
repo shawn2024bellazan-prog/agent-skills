@@ -383,10 +383,18 @@ function Test-RepositoryClaudeManifests {
             "Plugin '$($pluginDirectory.Name)' must keep its Claude manifest version synchronized with plugin.json."
     }
 
-    $dotnetClaudeManifest = Get-Content `
-        (Join-Path $repository 'plugins/dotnet/.claude-plugin/plugin.json') -Raw | ConvertFrom-Json
-    Assert-Equal './.lsp.json' $dotnetClaudeManifest.lspServers `
-        "The dotnet Claude manifest must reference Claude Code's LSP configuration."
+    foreach ($pluginDirectory in $pluginDirectories) {
+        $codexManifest = Join-Path $pluginDirectory.FullName '.codex-plugin/plugin.json'
+        Assert-Equal $true (Test-Path $codexManifest) `
+            "Plugin '$($pluginDirectory.Name)' must carry .codex-plugin/plugin.json."
+        $rootVersion = (Get-Content (Join-Path $pluginDirectory.FullName 'plugin.json') -Raw | ConvertFrom-Json).version
+        $codexVersion = (Get-Content $codexManifest -Raw | ConvertFrom-Json).version
+        Assert-Equal $rootVersion $codexVersion `
+            "Plugin '$($pluginDirectory.Name)' must keep its Codex manifest version synchronized with plugin.json."
+        $versionFile = Join-Path $pluginDirectory.FullName 'version.json'
+        Assert-Equal $true (Test-Path $versionFile) `
+            "Plugin '$($pluginDirectory.Name)' must declare a version.json release base."
+    }
 }
 
 [void](New-Item -ItemType Directory -Path $testRoot)

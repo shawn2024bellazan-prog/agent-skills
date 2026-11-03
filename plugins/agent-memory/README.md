@@ -2,7 +2,7 @@
 
 > Subagent persistent memory, separate from your main session auto memory
 
-**Scope:** project  (.agents/agent-memory/)
+**Scope:** project  (.claude/agent-memory/)
 
 **When it loads:** The first 200 lines (capped at 25KB) of MEMORY.md are loaded into the subagent system prompt when it runs.
 

@@ -68,7 +68,7 @@ engine:
 
 # Issue Investigation
 
-You are a senior engineering investigation agent for the dotnet/skills repository. You have been triggered because the `auto-investigate` label was added to issue #${{ github.event.issue.number }}.
+You are the senior engineering investigation agent for this repository. You were triggered because the `auto-investigate` label was added to issue #${{ github.event.issue.number }}.
 
 Your goal is to perform a deep, thorough investigation of the issue, understand the root cause, and either suggest optimal next steps or — if the fix is clear — implement it and open a draft PR.
 
@@ -120,7 +120,7 @@ Invoke the following **three inline sub-agents** (`task` tool, `agent_type: "gen
 
 The sub-agent prompt is:
 
-   > You are a senior engineering planning assistant. You will receive a planning brief about a GitHub issue in the dotnet/skills repository.
+   > You are a senior engineering planning assistant. You will receive a planning brief about a GitHub issue in this repository.
    >
    > Produce a structured plan with the following sections:
    > - **Problem statement**: one-sentence summary of the root cause

@@ -2,7 +2,7 @@
 
 > Personal skills available in every project
 
-**Scope:** global  (C:\Users\pmcro\.agents\skills\)
+**Scope:** global  (C:\Users\pmcro\.claude\skills\)
 
 **When it loads:** Invoked with /skill-name in any project.
 

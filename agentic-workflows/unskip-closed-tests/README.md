@@ -15,11 +15,11 @@ source-bound manifest, a read-only planner, and a custom safe-output job.
 From the consuming repository:
 
 ```powershell
-gh aw add-wizard dotnet/skills/agentic-workflows/unskip-closed-tests@main
+gh aw add-wizard shawn2024bellazan-prog/agent-skills/agentic-workflows/unskip-closed-tests@master
 ```
 
 Pin production installations to a release tag or commit SHA instead of
-`main`. The package installs:
+`master`. The package installs:
 
 - `.github/workflows/unskip-closed-tests.md`
 - `.github/workflows/unskip-closed-tests-prepare.md`
@@ -160,7 +160,7 @@ runs its chosen VSTest or MTP command, and writes the requested TRX files.
 
 ## Offline decision evaluation
 
-From a `dotnet/skills` checkout:
+From a `shawn2024bellazan-prog/agent-skills` checkout:
 
 ```powershell
 dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate `
@@ -191,7 +191,7 @@ flat expression context and trusted manifest/runtime-variable snapshots.
 ## Local package staging
 
 `gh aw add` accepts local workflow files but not a local package directory with
-all manifest resources. From a `dotnet/skills` checkout, stage the package into
+all manifest resources. From a `shawn2024bellazan-prog/agent-skills` checkout, stage the package into
 a disposable consumer checkout deterministically:
 
 ```powershell

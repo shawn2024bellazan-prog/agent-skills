@@ -2,7 +2,7 @@
 
 > Topic-scoped instructions, optionally gated by file paths
 
-**Scope:** project  (.agents/rules/)
+**Scope:** project  (.claude/rules/)
 
 **When it loads:** Rules without paths: load at session start. Rules with paths: load when the agent reads, writes, or edits a matching file.
 

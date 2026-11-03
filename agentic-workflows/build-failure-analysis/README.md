@@ -11,10 +11,10 @@ code.
 From the root of the consuming repository:
 
 ```powershell
-gh aw add-wizard dotnet/skills/agentic-workflows/build-failure-analysis@main
+gh aw add-wizard shawn2024bellazan-prog/agent-skills/agentic-workflows/build-failure-analysis@master
 ```
 
-Pin production installations to a release tag or commit SHA instead of `main`.
+Pin production installations to a release tag or commit SHA instead of `master`.
 
 The interactive installer prompts for these repository variables:
 
@@ -64,7 +64,7 @@ build-failure-analysis`; the updater uses a three-way merge to preserve local ch
 
 ## Offline decision evaluation
 
-From a `dotnet/skills` checkout:
+From a `shawn2024bellazan-prog/agent-skills` checkout:
 
 ```powershell
 dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate `

@@ -11,10 +11,8 @@ import {
 } from "node:fs";
 import { isAbsolute, join, resolve } from "node:path";
 
-const supportedCodexVersion = "0.154.0";
-const marketplaceName = "dotnet-agent-skills";
-const expectedMcpServer = "binlog";
-const expectedMcpTool = "binlog_overview";
+const supportedCodexVersion = process.env.CODEX_EXPECTED_VERSION ?? "0.166.0";
+const marketplaceName = "agent-skills";
 
 const options = parseArguments(process.argv.slice(2));
 const repositoryRoot = resolve(options.repository ?? process.cwd());
@@ -25,18 +23,9 @@ const stateParent = resolve(
 );
 const stateRoot = join(stateParent, "codex-plugin-smoke");
 const codexHome = join(stateRoot, "codex-home");
-const dotnetHome = join(stateRoot, "dotnet-home");
-const nugetPackages = join(stateRoot, "nuget-packages");
 const environment = {
   ...process.env,
   CODEX_HOME: codexHome,
-  DOTNET_CLI_HOME: dotnetHome,
-  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: "false",
-  DOTNET_CLI_TELEMETRY_OPTOUT: "1",
-  DOTNET_GENERATE_ASPNET_CERTIFICATE: "false",
-  DOTNET_NOLOGO: "1",
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "1",
-  NUGET_PACKAGES: nugetPackages,
 };
 delete environment.CODEX_API_KEY;
 delete environment.OPENAI_API_KEY;
@@ -44,8 +33,6 @@ delete environment.OPENAI_API_KEY;
 try {
   rmSync(stateRoot, { recursive: true, force: true });
   mkdirSync(codexHome, { recursive: true });
-  mkdirSync(dotnetHome, { recursive: true });
-  mkdirSync(nugetPackages, { recursive: true });
 
   const version = runCodex(["--version"]).trim();
   assert.match(
@@ -99,44 +86,10 @@ try {
   );
   assert.deepEqual(installedPlugins, new Set(expectedPlugins));
 
-  const mcpServers = runCodexJson(["mcp", "list", "--json"]);
-  const binlog = mcpServers.find(
-    (server) => server.name === expectedMcpServer && server.enabled,
-  );
-  assert.ok(binlog, "Codex did not discover the enabled binlog MCP server");
-  assert.equal(binlog.transport.type, "stdio");
-
-  runCommand("dotnet", [
-    "tool",
-    "install",
-    "Microsoft.AITools.BinlogMcp",
-    "--tool-path",
-    join(stateRoot, "binlog-tool"),
-    "--prerelease",
-  ]);
-
-  const sampleRoot = join(stateRoot, "sample");
-  const sampleBinlog = join(stateRoot, "sample.binlog");
-  mkdirSync(sampleRoot, { recursive: true });
-  writeFileSync(
-    join(sampleRoot, "sample.csproj"),
-    '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net11.0</TargetFramework></PropertyGroup></Project>',
-  );
-  writeFileSync(
-    join(sampleRoot, "Program.cs"),
-    'System.Console.WriteLine("smoke");',
-  );
-  runCommand("dotnet", [
-    "build",
-    join(sampleRoot, "sample.csproj"),
-    `-bl:${sampleBinlog}`,
-    "--nologo",
-  ]);
-
-  await testAppServer(sampleBinlog, expectedSkills);
+  await testAppServer(expectedSkills);
 
   console.log(
-    `Codex ${supportedCodexVersion} installed ${expectedPlugins.length} plugins, discovered all ${expectedSkills.size} skills and ${expectedMcpServer}, and called ${expectedMcpTool}.`,
+    `Codex ${supportedCodexVersion} installed ${expectedPlugins.length} plugins and discovered all ${expectedSkills.size} skills.`,
   );
 } finally {
   if (process.env.CODEX_SMOKE_KEEP_HOME !== "1") {
@@ -144,7 +97,7 @@ try {
   }
 }
 
-async function testAppServer(sampleBinlog, expectedSkills) {
+async function testAppServer(expectedSkills) {
   const appServer = spawn(codex, ["app-server", "--stdio"], {
     cwd: repositoryRoot,
     env: environment,
@@ -232,7 +185,7 @@ async function testAppServer(sampleBinlog, expectedSkills) {
   try {
     await request("initialize", {
       clientInfo: {
-        name: "dotnet-skills-codex-smoke",
+        name: "agent-skills-codex-smoke",
         version: "1.0.0",
       },
       capabilities: {
@@ -263,25 +216,6 @@ async function testAppServer(sampleBinlog, expectedSkills) {
       "Codex plugin skill inventory does not match the repository",
     );
 
-    const thread = await request("thread/start", {
-      cwd: repositoryRoot,
-      ephemeral: true,
-    });
-    const threadId = thread.thread.id;
-
-    const result = await request("mcpServer/tool/call", {
-      threadId,
-      server: expectedMcpServer,
-      tool: expectedMcpTool,
-      arguments: {
-        binlog_file: sampleBinlog,
-      },
-    });
-    assert.notEqual(result.isError, true, `${expectedMcpTool} returned an error`);
-    assert.ok(
-      (result.content?.length ?? 0) > 0 || result.structuredContent,
-      `${expectedMcpTool} returned no build overview`,
-    );
   } finally {
     appServer.stdin.end();
     const exitedGracefully = await Promise.race([

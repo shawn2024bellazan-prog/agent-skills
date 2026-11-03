@@ -54,9 +54,9 @@ tools:
     # (3) the "Untrusted content" prompt rules below that forbid following any
     # instructions embedded in issue/comment text.
     min-integrity: none
-    # Scope the github MCP guard to public repos only — this workflow only
-    # ever inspects this repo (which is public).
-    allowed-repos: public
+    # This repository is private. The token is scoped to this repository,
+    # and the prompt below limits issue triage to the triggering repository.
+    allowed-repos: all
   bash: ["cat", "grep", "head", "tail", "find", "ls", "jq", "sort"]
 
 safe-outputs:
@@ -100,7 +100,7 @@ engine:
 
 # Issue Triage
 
-You are a triage assistant for the dotnet/skills GitHub repository. Your task is to analyze and triage a single issue.
+You are the issue triage assistant for this Agent Skills marketplace. Analyze and triage one issue in the current repository.
 
 ## Untrusted content — security rules
 
@@ -154,20 +154,19 @@ Analyze the issue content and determine which area of the codebase it relates to
 
 | Area Label | Scope |
 |---|---|
-| `area-msbuild` | MSBuild, build system, project files |
-| `area-dotnet` | General C#/.NET, common language features |
-| `area-dotnet-ai` | AI/ML, MCP, model context protocol |
-| `area-dotnet-aspnetcore` | ASP.NET Core, web development |
-| `area-dotnet-data` | Data access, Entity Framework |
-| `area-dotnet-diag` | Diagnostics, performance, debugging, crash analysis |
-| `area-dotnet-experimental` | Experimental skills under evaluation |
-| `area-dotnet-maui` | .NET MAUI, mobile/desktop UI |
-| `area-dotnet-nuget` | NuGet package management |
-| `area-dotnet-template-engine` | Template engine, dotnet new |
-| `area-dotnet-test` | Testing frameworks, test tooling |
-| `area-dotnet-upgrade` | Migration, upgrading .NET versions |
-| `area-dotnet11` | .NET 11 specific features |
-| `area-infrastructure` | CI/CD, engineering infrastructure, workflows |
+| `area-agent-config` | Project and global instructions, settings, MCP servers, keybindings, app state |
+| `area-agent-memory` | Persistent memory owned by subagents |
+| `area-agents` | Specialized subagent definitions and tool access |
+| `area-commands` | Single-file slash commands and argument conventions |
+| `area-output-styles` | Custom response styles and instruction modes |
+| `area-projects` | Global automatic memory organized by project |
+| `area-rules` | Topic-scoped project and global instructions |
+| `area-skills` | Reusable Agent Skills and supporting resources |
+| `area-themes` | Global custom color themes |
+| `area-workflows` | Dynamic workflows coordinating subagents |
+| `area-marketplace` | Plugin metadata, host manifests, marketplace catalogs, installation and packaging |
+| `area-agentic-workflows` | Standalone GitHub Agentic Workflow packages |
+| `area-infrastructure` | CI/CD, repository automation, versioning and validation pipelines |
 | `area-skill-validator` | Skill validation tooling |
 
 If the issue clearly spans multiple areas, pick the **primary** one.

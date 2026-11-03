@@ -1,8 +1,8 @@
-# CLAUDE.md / AGENTS.md (global)
+# CLAUDE.md (global)
 
 > Personal preferences across every project
 
-**Scope:** global  (C:\Users\pmcro\.agents\AGENTS.md)
+**Scope:** global  (C:\Users\pmcro\.claude\CLAUDE.md)
 
 **When it loads:** Loaded at the start of every session, in every project.
 

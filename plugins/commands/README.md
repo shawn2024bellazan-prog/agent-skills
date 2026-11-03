@@ -2,7 +2,7 @@
 
 > Single-file prompts invoked with /name
 
-**Scope:** project  (.agents/commands/)
+**Scope:** project  (.claude/commands/)
 
 **When it loads:** The user types /command-name.
 

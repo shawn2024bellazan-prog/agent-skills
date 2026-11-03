@@ -180,7 +180,7 @@ class UnskipClosedTestsPackageTests(unittest.TestCase):
                     "--strict",
                     "--validate",
                     "--schedule-seed",
-                    "dotnet/skills",
+                    "shawn2024bellazan-prog/agent-skills",
                     "--action-mode",
                     "action",
                     "--action-tag",

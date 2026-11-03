@@ -31,8 +31,8 @@ jobs:
                 '> [!NOTE]',
                 '> **This PR is from a fork and modifies infrastructure files** (`eng/` or `.github/`).',
                 '>',
-                '> Changes to infrastructure typically need to be submitted from a branch in `dotnet/skills` (not a fork) so that CI workflows run with the correct permissions and secrets.',
+                '> Infrastructure changes are best proposed from a branch in this repository when the contributor has write access, so CI workflows can use the repository's configured permissions and secrets.',
                 '>',
-                '> Please consider recreating this PR from an upstream branch. If you don\'t have push access to `dotnet/skills`, ask a maintainer to push your branch for you.'
+                '> Please consider recreating this PR from a branch in this repository. If you do not have write access, ask a maintainer to help move the change onto a trusted branch.'
               ].join('\n')
             });

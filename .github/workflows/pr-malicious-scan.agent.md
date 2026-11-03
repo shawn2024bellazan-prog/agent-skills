@@ -46,11 +46,10 @@ tools:
     # by `safe-outputs` (only code-scanning alerts, one comment, ≤2 labels)
     # and the `permissions: contents: read, pull-requests: read` block above.
     min-integrity: none
-    # Scope the github MCP guard to public repos only — this workflow only
-    # ever inspects this repo (which is public). `allowed-repos` accepts
-    # `all` or `public`; `public` is the tighter of the two and matches the
-    # pattern used by other gh-aw workflows in this repo.
-    allowed-repos: public
+    # The repository is private. `allowed-repos: all` is needed for its
+    # private PR metadata; safe-outputs and read-only permissions still
+    # constrain this scanner's available actions.
+    allowed-repos: all
   bash:
     - "cat"
     - "grep"
@@ -102,7 +101,7 @@ engine:
 
 # PR Malicious Code Scan
 
-You are a security-review assistant for the dotnet/skills repository. Your job
+You are a security-review assistant for the Agent Skills marketplace. Your job
 is to inspect the **diff** of a single pull request submitted by an external
 (non-trusted) contributor and flag suspicious or malicious changes.
 
@@ -207,7 +206,7 @@ If at least one **high**-severity finding exists, OR any `workflow-tamper` or
 
    ```
    <!-- pr-malicious-scan:fingerprint={sha7}:{yyyy-mm-dd} -->
-   ⚠️ Automated diff scan flagged {N} item(s) on `{sha7}` for security review. cc @dotnet/skills-merge-approvers — please review the [code-scanning alerts]({alerts_url}) before merging.
+   ⚠️ Automated diff scan flagged {N} item(s) on `{sha7}` for security review. cc @shawn2024bellazan-prog — please review the [code-scanning alerts]({alerts_url}) before merging.
 
    Categories: {comma-separated list of unique categories}.
 

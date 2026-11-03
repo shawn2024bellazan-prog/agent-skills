@@ -36,7 +36,7 @@ INTENDED_STATE="${INTENDED_STATE:-}"
 
 REPO="$GITHUB_REPOSITORY"
 BOT_LOGIN="github-actions[bot]"
-MERGE_APPROVERS_TEAM="@dotnet/skills-merge-approvers"
+MERGE_APPROVERS_TEAM="@shawn2024bellazan-prog"
 
 STATE_LABELS=(
   "pr-state/evals-in-progress"

@@ -6,17 +6,19 @@ on:
       - ".agents/plugins/marketplace.json"
       - "plugins/*/plugin.json"
       - "plugins/*/.codex-plugin/plugin.json"
+      - "plugins/*/version.json"
       - "plugins/*/.mcp.json"
       - "plugins/*/mcp.json"
       - "plugins/*/skills/**"
       - "eng/codex/**"
       - ".github/workflows/codex-plugin-smoke.yml"
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - ".agents/plugins/marketplace.json"
       - "plugins/*/plugin.json"
       - "plugins/*/.codex-plugin/plugin.json"
+      - "plugins/*/version.json"
       - "plugins/*/.mcp.json"
       - "plugins/*/mcp.json"
       - "plugins/*/skills/**"
@@ -41,11 +43,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v5
-        with:
-          global-json-file: global.json
-
       - name: Setup Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
@@ -53,8 +50,8 @@ jobs:
 
       - name: Install Codex CLI
         env:
-          CODEX_SHA256: d7e18b2597ae8f242f5f31ee9e90deef48dbc9edd634d9868fb6435d08c07f02
-          CODEX_VERSION: 0.154.0
+          CODEX_SHA256: a0bf572d2f93f056c6712a6da348e96078dc84f3885fd7be67807ef389cb3978
+          CODEX_VERSION: 0.166.0
         shell: bash
         run: |
           mkdir -p artifacts/codex-cli
@@ -65,6 +62,6 @@ jobs:
           mv artifacts/codex-cli/codex-x86_64-unknown-linux-musl artifacts/codex-cli/codex
           chmod +x artifacts/codex-cli/codex
 
-      # This calls MCP transport directly without exercising authentication or model inference.
-      - name: Run credential-free Codex plugin discovery and MCP transport smoke test
+      # This verifies marketplace installation and skill discovery without model inference.
+      - name: Run credential-free Codex plugin installation and skill discovery smoke test
         run: node eng/codex/codex-plugin-smoke.mjs --codex "${{ github.workspace }}/artifacts/codex-cli/codex"

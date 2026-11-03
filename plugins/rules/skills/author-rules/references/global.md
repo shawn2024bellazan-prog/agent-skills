@@ -2,7 +2,7 @@
 
 > User-level rules that apply to every project
 
-**Scope:** global  (C:\Users\pmcro\.agents\rules\)
+**Scope:** global  (C:\Users\pmcro\.claude\rules\)
 
 **When it loads:** Rules without paths: load at session start. Rules with paths: load when a matching file is touched.
 

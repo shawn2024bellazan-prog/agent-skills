@@ -636,14 +636,14 @@ is worse than no eval, because no eval is visibly zero evidence whereas a
 fabricated verdict is counted in the plugin's pass rate. Remove the direct eval
 and preserve its scenarios through reachable consumer outcomes instead.
 
-The current `dotnet-test` reference skills — `code-testing-extensions`,
-`filter-syntax`, and `test-analysis-extensions` — therefore have no direct eval.
-Their consumer coverage is documented in `plugins/dotnet-test/README.md`;
-`filter-syntax`, for example, is covered through filtered-command scenarios in
-`tests/dotnet-test/run-tests/eval.yaml`, where the consumer can load the
-reference and produce a measurable outcome. Do not add a direct eval for a
-reference-only skill until the harness supports declaring skilled-arm
-dependencies.
+The upstream `dotnet-test` example is retained here as historical context
+for reference-only skills, but that plugin is not part of this marketplace and
+its former paths are not present in this checkout. The ten current directory-
+reference plugins are validated as authoring/documentation skills by the static
+skill validator; they do not currently declare behavioral Vally evals. When a
+future reference skill has a real consumer workflow, place that consumer eval
+under `tests/<plugin>/<skill>/` and ensure the tested consumer can load the
+reference through a reachable dependency.
 
 ### Dormancy guard without an anti-hijack rubric item
 

@@ -16,7 +16,7 @@ present in the source repository used as a packaging reference.
 
 | Plugin | Directory or area | What it covers |
 | --- | --- | --- |
-| [agent-config](plugins/agent-config/) | Root files and `.agents/` | Project instructions, settings, MCP configuration, keybindings, app state, and the project-level configuration layout. |
+| [agent-config](plugins/agent-config/) | Root files and `.claude/` | Project and global instructions, settings, MCP configuration, keybindings, app state, and the Claude Code configuration layout. |
 | [rules](plugins/rules/) | `rules/` | Topic-scoped instructions, including optional path-based loading with frontmatter globs. |
 | [skills](plugins/skills/) | `skills/` | Reusable, invocable skill folders with a `SKILL.md` entrypoint and supporting files. |
 | [commands](plugins/commands/) | `commands/` | Single-file prompts invoked by name, including argument conventions and the relationship to skills. |
@@ -27,7 +27,13 @@ present in the source repository used as a packaging reference.
 | [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
 | [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
 
-The marketplace manifest is [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
+Marketplace catalogs are maintained for Claude Code, Cursor, Codex, and GitHub:
+
+- [Claude Code](.claude-plugin/marketplace.json)
+- [Cursor](.cursor-plugin/marketplace.json)
+- [Codex](.agents/plugins/marketplace.json)
+- [GitHub](.github/plugin/marketplace.json)
+
 Each plugin has its own `plugin.json`, host metadata where applicable, and a `skills/`
 directory containing its `SKILL.md` entrypoint and any supporting `references/`.
 
@@ -36,27 +42,29 @@ directory containing its `SKILL.md` entrypoint and any supporting `references/`.
 ```text
 .
 ├── .agents/
+│   ├── plugins/
+│   │   └── marketplace.json   # Codex marketplace catalog
 │   ├── rules/                 # Repository-wide authoring guidance
 │   └── skills/                # Skills used to maintain this repository
 ├── .claude-plugin/
 │   └── marketplace.json       # Claude Code marketplace catalog
-├── .cursor-plugin/            # Cursor marketplace metadata
+├── .cursor-plugin/
+│   └── marketplace.json       # Cursor marketplace catalog
+├── .github/plugin/
+│   └── marketplace.json       # GitHub marketplace catalog
 ├── plugins/
-│   ├── agent-config/
-│   ├── agent-memory/
-│   ├── agents/
-│   ├── commands/
-│   ├── output-styles/
-│   ├── projects/
-│   ├── rules/
-│   ├── skills/
-│   ├── themes/
-│   └── workflows/
-│       ├── plugin.json
-│       └── skills/
-│           └── <skill-name>/
-│               ├── SKILL.md
-│               └── references/
+│   ├── <plugin-name>/
+│   │   ├── plugin.json
+│   │   ├── version.json
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── .codex-plugin/plugin.json
+│   │   ├── README.md
+│   │   └── skills/
+│   │       └── <skill-name>/
+│   │           ├── SKILL.md
+│   │           ├── references/
+│   │           ├── assets/
+│   │           └── scripts/
 ├── AGENTS.md
 └── README.md
 ```
@@ -68,8 +76,9 @@ its specific directory conventions and examples.
 
 The reference material distinguishes areas that can look similar but serve different roles:
 
-- **Project configuration** lives with a project and can be shared with its contributors.
-- **Global configuration** belongs to the user's environment and can apply across projects.
+- **Project configuration** lives at the project root and in `.claude/`; shared files can be committed, while local overrides remain untracked.
+- **Global configuration** lives in `~/.claude/` and `~/.claude.json` and applies across projects.
+- This repository's own `.agents/` directory is separate: it contains Codex marketplace metadata and repository-maintenance guidance, not the Claude Code directories documented by these plugins.
 - **Skills** package reusable instructions and supporting resources behind a `SKILL.md`.
 - **Commands** are single-file prompts; the reference explains their conventions and how they
   relate to skills.
@@ -101,10 +110,47 @@ After installation, invoke a plugin's skill by its skill name, or let Claude Cod
 when the task matches its description. The skill's `SKILL.md` is the entrypoint; consult
 its bundled `references/` for deeper details and examples.
 
+### Codex CLI
+
+Register the local checkout as a marketplace:
+
+```bash
+codex plugin marketplace add <path-to-local-checkout>
+```
+
+Open the plugin browser with `/plugins`, choose the `agent-skills` marketplace, and install
+the reference plugins you want. The Codex catalog is
+[`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json).
+
+### Cursor
+
+The Cursor catalog is [`.cursor-plugin/marketplace.json`](.cursor-plugin/marketplace.json).
+Use Cursor's plugin marketplace to add or browse the repository according to the current
+Cursor plugin workflow.
+
 > **Access note:** If you use a remote GitHub marketplace instead of a local checkout, the
 > repository must be accessible to the account and environment performing the installation.
-> This repository has previously been configured as a private GitHub repository, so a local
+> This repository is private, so a local
 > checkout is the predictable option unless its visibility or access has changed.
+
+## Separate GitHub Agentic Workflow packages
+
+The repository also retains four standalone GitHub Agentic Workflow packages. These are
+separate from the ten directory-reference plugins above and are not installed through the
+plugin marketplace:
+
+- [Build Failure Analysis](agentic-workflows/build-failure-analysis/) — evidence-based analysis
+  of failed .NET Azure Pipelines builds.
+- [MSBuild Quality Review](agentic-workflows/msbuild-quality-review/) — bounded review of
+  changed MSBuild project and infrastructure files.
+- [Test Failure Analysis](agentic-workflows/test-failure-analysis/) — analysis of normalized
+  CI test evidence.
+- [Unskip Closed Tests](agentic-workflows/unskip-closed-tests/) — governed re-enablement of
+  source-bound .NET tests.
+
+Install the collection with
+`gh aw add-wizard shawn2024bellazan-prog/agent-skills/agentic-workflows@master`, or use the
+individual package instructions in each package README.
 
 ## Source material and provenance
 

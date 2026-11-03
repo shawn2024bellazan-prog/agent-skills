@@ -22,12 +22,12 @@ on:
       - ".github/workflows/eval-quality.yml"
       - ".gitignore"
   push:
-    branches: [main]
+    branches: [master]
     # Kept in sync with the pull_request paths above. The gate reads plugins/*
     # (skills with no eval), .gitignore (fixtures excluded from the index), and
     # eng/vally-adapter (the stimulus floor it must agree with), so omitting any of
     # them here would let a direct push or a squash-merge that touches only
-    # those land on main without the gate ever running.
+    # those land on master without the gate ever running.
     paths:
       - "tests/**"
       - "plugins/**"
@@ -89,10 +89,10 @@ jobs:
             # pre-push tip so suites changed by any commit are checked.
             COMPARISON_REF="$PUSH_BEFORE"
           elif [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            # Manual runs validate the selected ref against main. The repository
+            # Manual runs validate the selected ref against master. The repository
             # still has grandfathered migration debt, so repository-wide audits
             # remain an explicit local operation.
-            COMPARISON_REF="origin/main"
+            COMPARISON_REF="origin/master"
           fi
 
           if [ -n "$COMPARISON_REF" ]; then

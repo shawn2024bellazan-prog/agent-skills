@@ -2,7 +2,7 @@
 
 > Persistent memory for subagents with memory: user
 
-**Scope:** global  (C:\Users\pmcro\.agents\agent-memory\)
+**Scope:** global  (C:\Users\pmcro\.claude\agent-memory\)
 
 **When it loads:** Loaded into the subagent system prompt when the subagent starts.
 

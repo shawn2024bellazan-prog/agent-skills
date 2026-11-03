@@ -2,7 +2,7 @@
 
 > Reusable prompts you or the agent invoke by name
 
-**Scope:** project  (.agents/skills/)
+**Scope:** project  (.claude/skills/)
 
 **When it loads:** Invoked with /skill-name, or when the agent matches the task to a skill.
 

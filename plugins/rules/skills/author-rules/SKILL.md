@@ -1,6 +1,6 @@
 ---
 name: author-rules
-description: Author topic-scoped rule files for rules/. Use when adding project or global rules, or splitting a long instructions file into rules.
+description: "Author topic-scoped rule files. Use when adding project or global rules, or splitting long instructions into focused rule files."
 ---
 
 # Rules
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Project: .agents/rules/*.md. Global: C:\Users\pmcro\.agents\rules\.
+Project: .claude/rules/*.md. Global: C:\Users\pmcro\.claude\rules\.
 
 ## How to author it
 

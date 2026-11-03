@@ -2,7 +2,7 @@
 
 > Project-scoped output styles, if your team shares any
 
-**Scope:** project  (.agents/output-styles/)
+**Scope:** project  (.claude/output-styles/)
 
 **When it loads:** Files read at startup; the style you select with outputStyle applies to every response.
 

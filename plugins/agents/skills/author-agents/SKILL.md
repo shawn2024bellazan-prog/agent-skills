@@ -1,6 +1,6 @@
 ---
 name: author-agents
-description: Author subagents for agents/. Use when adding a specialized agent with its own system prompt, tools and context window.
+description: "Author specialized subagents in the agents directory. Use when adding an agent with its own system prompt, tool access, and context window."
 ---
 
 # Agents
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Project: .agents/agents/*.md. Global: C:\Users\pmcro\.agents\agents\.
+Project: .claude/agents/*.md. Global: C:\Users\pmcro\.claude\agents\.
 
 ## How to author it
 

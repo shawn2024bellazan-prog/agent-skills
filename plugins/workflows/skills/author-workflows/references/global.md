@@ -2,7 +2,7 @@
 
 > Personal dynamic workflows available in every project
 
-**Scope:** global  (C:\Users\pmcro\.agents\workflows\)
+**Scope:** global  (C:\Users\pmcro\.claude\workflows\)
 
 **When it loads:** Loaded at startup; each file becomes a /<name> command.
 

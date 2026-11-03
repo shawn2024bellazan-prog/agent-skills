@@ -1,6 +1,6 @@
 ---
 name: author-workflows
-description: Understand and save dynamic workflows in workflows/. Use when a multi-subagent run should become a reusable /<name> command.
+description: Understand and save dynamic workflow scripts in the workflows directory. Use when a multi-agent run should become a reusable slash command.
 ---
 
 # Workflows
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Project: .agents/workflows/*.js. Global: C:\Users\pmcro\.agents\workflows\.
+Project: .claude/workflows/*.js. Global: C:\Users\pmcro\.claude\workflows\.
 
 ## How to author it
 

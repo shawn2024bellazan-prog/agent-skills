@@ -2,7 +2,7 @@
 
 > A skill bundling SKILL.md with supporting files
 
-**Scope:** project  (.agents/skills/security-review/)
+**Scope:** project  (.claude/skills/security-review/)
 
 Contents: SKILL.md (entrypoint: trigger, invocability, instructions) and checklist.md (supporting file bundled with the skill).
 

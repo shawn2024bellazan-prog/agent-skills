@@ -1,6 +1,6 @@
 ---
 name: author-themes
-description: Author custom color themes for themes/. Use when adding or editing a theme JSON file.
+description: "Author custom color themes. Use when adding or editing a theme definition in JSON."
 ---
 
 # Themes
@@ -9,7 +9,7 @@ See ../../README.md for the directory overview.
 
 ## Where it lives
 
-Global only: C:\Users\pmcro\.agents\themes\*.json.
+Global only: C:\Users\pmcro\.claude\themes\*.json.
 
 ## How to author it
 

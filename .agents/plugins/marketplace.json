@@ -10,7 +10,7 @@
     {
       "name": "agent-config",
       "source": "./plugins/agent-config",
-      "description": "Reference for root files and the .agents directory: instructions, MCP servers, settings, keybindings, app state."
+      "description": "Reference for Claude Code root files and project/global .claude/ directories: instructions, MCP servers, settings, keybindings, app state."
     },
     {
       "name": "rules",

@@ -2,7 +2,7 @@
 
 > API conventions scoped to backend code
 
-**Scope:** project  (.agents/rules/api-design.md)
+**Scope:** project  (.claude/rules/api-design.md)
 
 **When it loads:** Loaded when a file matching the paths: glob below is read, written, or edited.
 

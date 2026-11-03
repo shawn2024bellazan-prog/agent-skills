@@ -2,7 +2,7 @@
 
 > Personal subagents available in every project
 
-**Scope:** global  (C:\Users\pmcro\.agents\agents\)
+**Scope:** global  (C:\Users\pmcro\.claude\agents\)
 
 **When it loads:** The agent delegates, or you @-mention it, in any project.
 

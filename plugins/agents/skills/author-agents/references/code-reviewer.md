@@ -2,7 +2,7 @@
 
 > Subagent for isolated code review
 
-**Scope:** project  (.agents/agents/code-reviewer.md)
+**Scope:** project  (.claude/agents/code-reviewer.md)
 
 **When it loads:** The agent spawns it for review tasks, or you @-mention it from the autocomplete.
 
