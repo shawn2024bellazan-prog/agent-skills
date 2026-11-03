@@ -1,5 +1,6 @@
 {
   "name": "workflows",
   "version": "0.1.0",
-  "description": "Reference for the workflows/ directory: dynamic workflow scripts that orchestrate many subagents."
+  "description": "Reference for the workflows/ directory: dynamic workflow scripts that orchestrate many subagents.",
+  "skills": ["./skills/"]
 }

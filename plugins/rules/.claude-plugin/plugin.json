@@ -1,5 +1,6 @@
 {
   "name": "rules",
   "version": "0.1.0",
-  "description": "Reference for the rules/ directory: topic-scoped instructions, optionally gated by file paths."
+  "description": "Reference for the rules/ directory: topic-scoped instructions, optionally gated by file paths.",
+  "skills": ["./skills/"]
 }

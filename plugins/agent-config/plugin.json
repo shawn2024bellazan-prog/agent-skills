@@ -1,5 +1,6 @@
 {
   "name": "agent-config",
   "version": "0.1.0",
-  "description": "Reference for the root files and the .agents/ directory itself: instructions, MCP servers, settings, keybindings and app state (project and global scope)."
+  "description": "Reference for the root files and the .agents/ directory itself: instructions, MCP servers, settings, keybindings and app state (project and global scope).",
+  "skills": ["./skills/"]
 }

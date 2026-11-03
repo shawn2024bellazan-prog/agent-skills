@@ -1,5 +1,6 @@
 {
   "name": "commands",
   "version": "0.1.0",
-  "description": "Reference for the commands/ directory: single-file prompts invoked with /name."
+  "description": "Reference for the commands/ directory: single-file prompts invoked with /name.",
+  "skills": ["./skills/"]
 }
