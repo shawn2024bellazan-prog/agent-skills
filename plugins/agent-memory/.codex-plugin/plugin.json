@@ -1,0 +1,5 @@
+{
+  "name": "agent-memory",
+  "version": "0.1.0",
+  "description": "Reference for the agent-memory/ directory: persistent memory for subagents, separate from main session auto memory."
+}

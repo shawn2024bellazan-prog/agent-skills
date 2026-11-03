@@ -1,0 +1,61 @@
+{
+  "name": "agent-skills",
+  "owner": {
+    "name": "Tooensure"
+  },
+  "interface": {
+    "displayName": "Agent Skills"
+  },
+  "plugins": [
+    {
+      "name": "agent-config",
+      "source": "./plugins/agent-config",
+      "description": "Reference for root files and the .agents directory: instructions, MCP servers, settings, keybindings, app state."
+    },
+    {
+      "name": "rules",
+      "source": "./plugins/rules",
+      "description": "Reference for rules/: topic-scoped instructions, optionally gated by file paths."
+    },
+    {
+      "name": "skills",
+      "source": "./plugins/skills",
+      "description": "Reference for skills/: reusable prompts invoked by name, each a folder with SKILL.md."
+    },
+    {
+      "name": "commands",
+      "source": "./plugins/commands",
+      "description": "Reference for commands/: single-file prompts invoked with /name."
+    },
+    {
+      "name": "output-styles",
+      "source": "./plugins/output-styles",
+      "description": "Reference for output-styles/: custom instruction sets that adjust how the agent works."
+    },
+    {
+      "name": "agents",
+      "source": "./plugins/agents",
+      "description": "Reference for agents/: specialized subagents with their own context window."
+    },
+    {
+      "name": "workflows",
+      "source": "./plugins/workflows",
+      "description": "Reference for workflows/: dynamic workflow scripts that orchestrate many subagents."
+    },
+    {
+      "name": "agent-memory",
+      "source": "./plugins/agent-memory",
+      "description": "Reference for agent-memory/: persistent memory for subagents."
+    },
+    {
+      "name": "themes",
+      "source": "./plugins/themes",
+      "description": "Reference for themes/: custom color themes (global scope)."
+    },
+    {
+      "name": "projects",
+      "source": "./plugins/projects",
+      "description": "Reference for projects/: auto memory, per project (global scope)."
+    }
+  ]
+}

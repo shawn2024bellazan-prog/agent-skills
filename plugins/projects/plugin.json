@@ -1,0 +1,5 @@
+{
+  "name": "projects",
+  "version": "0.1.0",
+  "description": "Reference for the projects/ directory: auto memory, the agent notes to itself per project (global scope)."
+}
