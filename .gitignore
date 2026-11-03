@@ -14,6 +14,7 @@
 !.agents/skills/create-skill/
 !.agents/skills/create-skill-test/
 !.agents/skills/improve-skill-quality/
+!.agents/skills/security-review/
 
 # User-specific files
 *.rsuser
