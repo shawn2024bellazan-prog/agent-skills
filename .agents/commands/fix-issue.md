@@ -1,5 +1,12 @@
-Fix the issue described in $ARGUMENTS.
+---
+argument-hint: <issue-number>
+---
 
-1. Reproduce the problem.
-2. Make the smallest fix.
-3. Add a test.
+!`gh issue view $ARGUMENTS`
+
+Investigate and fix the issue above.
+
+1. Trace the bug to its root cause
+2. Implement the fix
+3. Write or update tests
+4. Summarize what you changed and why

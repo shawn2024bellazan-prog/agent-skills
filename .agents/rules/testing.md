@@ -1,4 +1,11 @@
-# Testing rules
+---
+paths:
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+---
 
-- Add or update tests with every behavior change.
-- Run the relevant test suite before committing.
+# Testing Rules
+
+- Use descriptive test names: "should [expected] when [condition]"
+- Mock external dependencies, not internal modules
+- Clean up side effects in afterEach

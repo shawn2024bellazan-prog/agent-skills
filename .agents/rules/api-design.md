@@ -1,4 +1,10 @@
-# API design rules
+---
+paths:
+  - "src/api/**/*.ts"
+---
 
-- Keep public surfaces small and consistent.
-- Document breaking changes in the commit message.
+# API Design Rules
+
+- All endpoints must validate input with Zod schemas
+- Return shape: { data: T } | { error: string }
+- Rate limit all public endpoints
