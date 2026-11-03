@@ -54,7 +54,7 @@ Create focused AGENTS subagents with a clear role, appropriate delegation trigge
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Code reviewer example](./references/code-reviewer.md)
 - [Global agents](./references/global.md)

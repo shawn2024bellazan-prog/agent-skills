@@ -52,6 +52,6 @@ Create a global AGENTS color theme using a supported base preset and explicit to
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Themes reference](./references/themes.md)

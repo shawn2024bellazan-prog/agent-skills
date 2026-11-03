@@ -52,7 +52,7 @@ Explain where persistent AGENTS subagent memory belongs and how its configured s
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Agent memory example](./references/agent-name.md)
 - [Global memory](./references/global.md)

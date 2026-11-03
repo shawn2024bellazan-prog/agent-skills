@@ -53,7 +53,7 @@ Write focused, maintainable AGENTS rules and choose when they load, without pres
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [API design rule](./references/api-design.md)
 - [Global rules](./references/global.md)

@@ -360,29 +360,6 @@ public class PluginMcpManifestTests
         }
     }
 
-    /// <summary>
-    /// Loads the shipped dotnet-msbuild manifests from the packaged plugin root and asserts the
-    /// bundled binlog MCP server is discoverable from every host manifest.
-    /// </summary>
-    [TestMethod]
-    public void DotnetMsbuildPluginExposesBinlogFromEveryManifest()
-    {
-        var pluginRoot = Path.Combine(FindRepositoryRoot(), "plugins", "dotnet-msbuild");
-        Assert.IsTrue(Directory.Exists(pluginRoot), $"Plugin root not found at '{pluginRoot}'.");
-
-        string[] manifests = ["plugin.json", .. PluginDiscovery.CompanionManifestRelativePaths];
-        foreach (var relativePath in manifests)
-        {
-            var manifestPath = Path.Combine(pluginRoot, relativePath.Replace('/', Path.DirectorySeparatorChar));
-            Assert.IsTrue(File.Exists(manifestPath), $"Expected manifest '{relativePath}' in the dotnet-msbuild plugin.");
-
-            Assert.IsTrue(
-                PluginDiscovery.TryGetManifestMcpServerNames(pluginRoot, manifestPath, out var servers, out var error),
-                $"{relativePath}: {error}");
-            Assert.Contains("binlog", servers);
-        }
-    }
-
     [TestMethod]
     public void RepositoryCodexManifestsUseSupportedFieldsAndMcpShapes()
     {

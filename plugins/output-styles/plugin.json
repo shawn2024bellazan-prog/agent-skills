@@ -1,6 +1,6 @@
 {
   "name": "output-styles",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reference for the output-styles/ directory: custom instruction sets that adjust how the agent works.",
   "skills": ["./skills/"]
 }

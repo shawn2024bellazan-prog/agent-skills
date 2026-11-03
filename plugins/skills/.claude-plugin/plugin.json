@@ -1,6 +1,6 @@
 {
   "name": "skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reference for the skills/ directory: reusable prompts invoked by name, each a folder with SKILL.md.",
   "skills": ["./skills/"]
 }

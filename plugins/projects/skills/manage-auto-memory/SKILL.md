@@ -53,7 +53,7 @@ Help distinguish and manage AGENTS's main-session automatic memory, which is sto
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Debugging memory example](./references/debugging.md)
 - [Memory file](./references/MEMORY.md)

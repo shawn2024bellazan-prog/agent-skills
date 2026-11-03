@@ -54,6 +54,6 @@ Turn a useful dynamic AGENTS workflow into a reusable script while preserving pr
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Global workflows](./references/global.md)

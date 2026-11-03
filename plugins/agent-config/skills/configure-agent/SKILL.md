@@ -54,7 +54,7 @@ Place AGENTS instructions and settings at the correct project or global scope, p
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Application state](./references/app-state.md)
 - [Project instructions](./references/CLAUDE.md)

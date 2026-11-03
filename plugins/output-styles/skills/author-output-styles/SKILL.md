@@ -52,7 +52,7 @@ Define a reusable AGENTS response mode while keeping it distinct from always-on 
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Global output styles](./references/global.md)
 - [Teaching style](./references/teaching.md)

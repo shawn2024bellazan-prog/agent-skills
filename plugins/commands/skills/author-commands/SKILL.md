@@ -53,7 +53,7 @@ Create a focused, single-file AGENTS slash command and place it at the intended 
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Fix issue command](./references/fix-issue.md)
 - [Global commands](./references/global.md)

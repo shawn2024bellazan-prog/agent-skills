@@ -64,7 +64,7 @@ Create a focused, on-demand AGENTS skill whose description routes it to the righ
 
 ## References
 
-See [the plugin README](../../README.md) for the directory overview.
+See the plugin README for the directory overview.
 
 - [Checklist](./references/checklist.md)
 - [Global skills](./references/global.md)
