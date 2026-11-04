@@ -1,8 +1,8 @@
-# <project>/memory/
+# `<project>/memory/`
 
 > Accumulated knowledge for one project
 
-**Scope:** 
+**Scope:**
 
 **When it loads:** Contents: MEMORY.md (written and maintained automatically) and debugging.md (topic notes written when MEMORY.md gets long). The agent writes this directory.
 

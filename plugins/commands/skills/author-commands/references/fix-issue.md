@@ -1,6 +1,6 @@
 # fix-issue.md
 
-> Invoked as /fix-issue <number>
+> Invoked as `/fix-issue <number>`
 
 **Scope:** project  (.claude/commands/fix-issue.md)
 

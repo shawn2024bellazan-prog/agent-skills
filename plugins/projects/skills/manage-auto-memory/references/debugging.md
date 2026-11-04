@@ -2,7 +2,7 @@
 
 > Topic notes the agent writes when MEMORY.md gets long
 
-**Scope:** global  (<project>/memory/debugging.md)
+**Scope:** global  (`<project>/memory/debugging.md`)
 
 **When it loads:** The agent reads this when a related task comes up.
 

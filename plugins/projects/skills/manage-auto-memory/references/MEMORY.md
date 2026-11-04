@@ -2,7 +2,7 @@
 
 > The agent writes and maintains this file automatically
 
-**Scope:** global  (<project>/memory/MEMORY.md)
+**Scope:** global  (`<project>/memory/MEMORY.md`)
 
 **When it loads:** The first 200 lines (capped at 25KB) are loaded at session start.
 

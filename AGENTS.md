@@ -1,6 +1,6 @@
 # Repository instructions
 
-This repository is a directory-reference and authoring marketplace. It contains ten independent plugins under plugins/, each documenting one part of the AGENTS project or global directory layout.
+This repository is a directory-reference and authoring marketplace. It contains eleven marketplace plugins under `plugins/`: ten directory-reference plugins covering the AGENTS project/global layout and one authoring plugin, `skill-creator`.
 
 ## Product scope
 
@@ -10,13 +10,13 @@ Do not reintroduce the upstream .NET skill catalog as part of this product. The 
 
 ## Plugin structure
 
-Each plugins/<name>/ directory is an independently installable plugin and should retain:
+Each `plugins/<name>/` directory is an independently installable plugin and should retain:
 
 - plugin.json at the plugin root
 - version.json declaring the plugin's major.minor release base and canonical path filters
 - .claude-plugin/plugin.json for Claude compatibility
 - .codex-plugin/plugin.json for Codex compatibility
-- skills/<skill-name>/SKILL.md as the skill entrypoint
+- `skills/<skill-name>/SKILL.md` as the skill entrypoint
 - Optional references/, assets/, and scripts/ for supporting resources
 
 Keep each skill's entrypoint focused. Put detailed examples and supporting documentation in its references/ directory and link to those files from SKILL.md.

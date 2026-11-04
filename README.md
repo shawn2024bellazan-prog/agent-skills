@@ -3,7 +3,7 @@
 A plugin marketplace that documents and helps author the files and directories used to
 configure AGENTS at the project and global levels.
 
-Each plugin focuses on one part of the directory layout. Its bundled Agent Skill explains
+The marketplace includes ten directory-reference plugins and a separate authoring plugin, `skill-creator`. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
 the purpose, scope, loading behavior, conventions, and practical use of that part of the
 configuration. Supporting reference material lives beside the skill so it can be consulted
 when needed.
@@ -26,6 +26,7 @@ present in the source repository used as a packaging reference.
 | [agent-memory](plugins/agent-memory/) | `agent-memory/` | Persistent, project-scoped memory belonging to individual subagents. |
 | [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
 | [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
+| [skill-creator](plugins/skill-creator/) | Agent-skill authoring | Scaffolds and validates new skills with `SKILL.md` and supporting resources. |
 
 Marketplace catalogs are maintained for AGENTS, Cursor, Codex, and GitHub:
 

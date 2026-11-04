@@ -4,7 +4,7 @@
 
 **Scope:** global  (C:\Users\pmcro\.claude\workflows\)
 
-**When it loads:** Loaded at startup; each file becomes a /<name> command.
+**When it loads:** Loaded at startup; each file becomes a `/<name>` command.
 
 Workflow scripts saved here are available across all your projects. A project workflow with the same name takes precedence.
 

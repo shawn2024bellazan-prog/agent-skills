@@ -1,4 +1,4 @@
-# <agent-name>/
+# `<agent-name>/`
 
 > One folder per subagent
 

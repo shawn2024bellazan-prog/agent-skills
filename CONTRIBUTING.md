@@ -39,8 +39,8 @@ Each top-level directory in plugins/ is one independently installable reference 
 
 When adding a plugin:
 
-1. Create plugins/<plugin-name>/ with root and host-specific plugin metadata.
-2. Add at least one skill under skills/<skill-name>/SKILL.md.
+1. Create `plugins/<plugin-name>/` with root and host-specific plugin metadata.
+2. Add at least one skill under `skills/<skill-name>/SKILL.md`.
 3. Put detailed examples and supporting material in references/; use assets/ and scripts/ only when they materially support the skill.
 4. Add a concise plugin README explaining its scope and the skill it contains.
 5. Add the plugin to all four marketplace catalogs: .claude-plugin/marketplace.json, .cursor-plugin/marketplace.json, .agents/plugins/marketplace.json, and .github/plugin/marketplace.json.

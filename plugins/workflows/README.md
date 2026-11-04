@@ -4,7 +4,7 @@
 
 **Scope:** project  (.claude/workflows/)
 
-**When it loads:** Loaded at startup; each file becomes a /<name> command.
+**When it loads:** Loaded at startup; each file becomes a `/<name>` command.
 
 Each .js file is a dynamic workflow: a script the runtime executes to spawn and coordinate many subagents. Workflows are written by the agent and saved here from /workflows rather than authored from scratch.
 
