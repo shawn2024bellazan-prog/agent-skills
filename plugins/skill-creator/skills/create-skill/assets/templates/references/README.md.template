@@ -1,0 +1,9 @@
+# References
+
+The skill entrypoint is [../SKILL.md](../SKILL.md). Read each supporting document only when its topic is needed.
+
+| File | Purpose | When to read |
+|------|---------|--------------|
+| {{reference-file.md}} | {{Detailed example, schema, or source note}} | {{Workflow step that needs it}} |
+
+Use this index only when the skill has reference files. Remove unused rows.

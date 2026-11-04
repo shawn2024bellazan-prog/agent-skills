@@ -1,0 +1,13 @@
+# {{Task}} prompt
+
+Use this prompt when {{specific repeatable situation}}. Fill in the known fields and leave unknown fields blank.
+
+## Context
+
+- **Outcome:** {{What must be produced}}
+- **Inputs:** {{Files or information to use}}
+- **Constraints:** {{Scope, host, security, or style limits}}
+
+## Prompt
+
+{{Write the reusable task instruction. State how to treat source material, what not to assume, the desired output, and how to report uncertainty.}}

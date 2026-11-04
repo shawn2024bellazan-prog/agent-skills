@@ -1,0 +1,24 @@
+---
+name: {{skill-name}}
+description: "{{What this skill does and when to use it}}"
+---
+
+# {{Skill title}}
+
+{{One short paragraph describing the task and outcome.}}
+
+## Workflow
+
+1. {{The main actionable step. Add only steps needed for this task.}}
+
+## Result
+
+{{Describe the expected output and one observable success check.}}
+
+## Boundaries
+
+{{Include only task-specific limits, permissions, or stop conditions that materially change behavior. Remove this section if none apply.}}
+
+## Supporting files
+
+{{Add links only for resources the workflow actually needs. Remove this section when the skill is self-contained.}}

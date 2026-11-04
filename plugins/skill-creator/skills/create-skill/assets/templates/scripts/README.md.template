@@ -1,0 +1,18 @@
+# Scripts
+
+The skill uses the deterministic helpers listed here. Read the relevant helper's own usage notes before invoking it.
+
+## Runtime contract
+
+- **Target host or runner:** {{Named runner or local process}}
+- **Workflow or delegated skill:** {{What invokes the helper, if applicable}}
+- **Dependencies and model/runtime:** {{Required tools and configuration source}}
+- **Permissions, network, and secrets:** {{Minimum required access; secret names only, never values}}
+- **Inputs and outputs:** {{Files or arguments consumed and observable results produced}}
+- **Side effects and approval boundary:** {{What may change and who authorizes consequential actions}}
+
+| File | Purpose | Inputs and outputs | Invoked by |
+|------|---------|--------------------|------------|
+| {{helper-file}} | {{Deterministic task}} | {{Arguments and observable result}} | {{Workflow step/action}} |
+
+Add this document only when the skill has scripts and the shared runtime contract or index is useful. Keep hosted actions on their declared runner unless a supported local run is explicitly requested.

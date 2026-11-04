@@ -1,0 +1,8 @@
+# {{Skill title}}
+
+{{One short maintainer-oriented sentence describing the skill.}}
+
+- **Entrypoint:** [SKILL.md](./SKILL.md)
+- **Resources:** {{List only the references, assets, scripts, or host files that exist and explain when they are used.}}
+
+Keep this optional overview brief. Do not add it for a single-file skill unless the target repository expects a README.

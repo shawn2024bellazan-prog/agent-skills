@@ -1,0 +1,14 @@
+# {{Reference topic}}
+
+## Purpose
+
+{{Explain the detail this document provides and which skill step uses it.}}
+
+## Guidance
+
+{{Put detailed steps, examples, schema notes, or host-specific behavior here. Keep runtime selection and the short workflow in SKILL.md.}}
+
+## Sources and limits
+
+- {{Authoritative source or evidence}}
+- {{Version, scope, or uncertainty limit}}

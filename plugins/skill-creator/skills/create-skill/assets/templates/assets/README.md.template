@@ -1,0 +1,9 @@
+# Assets
+
+Use these files as task materials; they are not a second copy of the skill instructions.
+
+| File | Purpose | When to use |
+|------|---------|-------------|
+| {{asset-file}} | {{Reusable prompt, form, fixture, or other input/output}} | {{Workflow step that uses it}} |
+
+Use this index only when the skill has asset files. Remove unused rows.

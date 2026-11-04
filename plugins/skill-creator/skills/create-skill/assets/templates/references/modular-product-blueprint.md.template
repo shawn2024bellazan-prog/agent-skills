@@ -1,0 +1,66 @@
+# Complete modular product blueprint
+
+Use this reference when the skill's intended outcome is a complete product, repository, or modular application setup. Do not use it to imply that all projects need the same modules.
+
+## Source baseline
+
+- **Canonical target root:** {{Repository or output root}}
+- **Authoritative inputs:** {{Source files, manifests, version files, and user requirements}}
+- **Reference material:** {{Read-only examples and their provenance}}
+- **Known conflicts or unknowns:** {{Version/documentation drift, assumptions, and open boundaries}}
+
+Derive versions and behavior from current source files and authoritative manifests. If README, policy, lock files, project files, and runtime evidence disagree, record the conflict and resolve it before generating. Do not convert a reference example into a required product feature without authorization.
+
+## Complete deliverable inventory
+
+List every required output so generation cannot stop at an empty shell:
+
+| Area | Required output | Source of truth | Acceptance evidence |
+|------|-----------------|-----------------|---------------------|
+| Repository and solution | {{Files and projects}} | {{Input}} | {{Check}} |
+| Modules | {{Responsibilities and boundaries}} | {{Input}} | {{Check}} |
+| Composition host | {{Aspire AppHost or equivalent}} | {{Input}} | {{Check}} |
+| Apps and clients | {{Surfaces to produce}} | {{Input}} | {{Check}} |
+| Integrations | {{Databases, queues, models, protocols, or external services}} | {{Input}} | {{Check}} |
+| Automation | {{Hosted workflow and invoked skills/scripts, if requested}} | {{Input}} | {{Check}} |
+| Tests, documentation, evidence | {{Required files and validation}} | {{Input}} | {{Check}} |
+
+## Module catalog
+
+| Module or project | Responsibility | Public contracts | Depends on | Must not own |
+|------------------|----------------|------------------|------------|--------------|
+| {{Module}} | {{Role}} | {{Interfaces/events/APIs}} | {{Allowed dependencies}} | {{Forbidden concerns}} |
+
+Document dependency direction and composition separately. Keep business rules, contracts, infrastructure, hosting, runtime, protocols, clients, and verification in the modules that own them. Generate every declared module and its required source/configuration files; label deliberate skeletons instead of presenting them as complete.
+
+## Composition and runtime
+
+- **Composition host:** {{Aspire AppHost or other orchestrator}}
+- **Environment topology:** {{Development, test, production boundaries}}
+- **Resources and dependencies:** {{Data stores, caches, queues, model servers, and protocols}}
+- **Model/runtime:** {{Provider/model and configuration source, or none}}
+- **Runner:** {{GitHub-hosted runner or other declared runner}}
+- **Delegation:** {{Existing setup skill/action invoked, or none}}
+- **Secrets and permissions:** {{Secret names, minimum scopes, network restrictions}}
+- **Local execution:** {{Allowed only if explicitly requested and supported; otherwise not part of the workflow}}
+
+For an Aspire + MAF + Ollama example, keep AppHost composition, MAF agent discovery, model binding, worker admission, and production authority as separate claims. A hosted action may invoke an existing Aspire setup skill; Ollama use is conditional on an explicit configured endpoint/model and must not be inferred from discovery. Model output alone does not approve changes or authorize tools.
+
+## Generation sequence
+
+1. Inspect the destination and current source of truth; preserve existing work and provenance.
+2. Produce the full module/file inventory and dependency map.
+3. Generate module projects, contracts, composition, automation, docs, and tests in dependency order.
+4. Wire modules through explicit contracts; do not bypass governance or security boundaries.
+5. Validate links, manifests, project references, module ownership, and required outputs.
+6. Run only the checks requested and supported for the declared environment. Keep GitHub-hosted workflows on the hosted runner unless a local mode is explicitly authorized.
+7. Report each result as verified, partial, blocked, or unexecuted with the evidence path.
+
+## Acceptance contract
+
+- [ ] Every required inventory row has a concrete output or an explicitly stated blocker.
+- [ ] Every module has an owner, responsibility, contracts, and allowed dependency direction.
+- [ ] The composition host references the intended modules and external resources.
+- [ ] Environment, model/runtime, secrets, permissions, and authority boundaries are explicit.
+- [ ] Hosted automation invokes only declared skills/scripts and does not silently run locally.
+- [ ] Validation evidence is current, bounded, and tied to the generated source; layout placeholders are not reported as implementation.

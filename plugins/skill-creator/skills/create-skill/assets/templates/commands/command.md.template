@@ -1,0 +1,7 @@
+---
+argument-hint: "{{Arguments, or remove this field when the command takes none}}"
+---
+
+Use the `{{skill-name}}` skill for this task.
+
+Pass the user's text after the command name as input to that skill. Follow its scope, runtime, permissions, and approval boundaries. Keep this command as a short entrypoint; do not duplicate the skill workflow here.
