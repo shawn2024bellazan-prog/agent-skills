@@ -180,6 +180,8 @@ When adding or changing a reference area:
 
 See [`AGENTS.md`](AGENTS.md) for repository-specific authoring guidance.
 
+For product-name proposals and naming conventions, see the [Naming Convention Guide](docs/naming-convention-guide.md).
+
 ## License
 
 See [`LICENSE`](LICENSE) for license terms.
