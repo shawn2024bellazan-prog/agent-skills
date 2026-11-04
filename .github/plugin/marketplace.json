@@ -57,7 +57,7 @@
     {
       "name": "skill-creator",
       "source": "./plugins/skill-creator",
-      "description": "Author new agent skills: scaffold a skill folder with SKILL.md, references, assets, and scripts, then validate it."
+      "description": "Author focused agent skills; add references, assets, scripts, and host-specific outputs only when useful or required by the target repository, then validate the result."
     }
   ]
 }
