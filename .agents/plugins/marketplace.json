@@ -61,6 +61,11 @@
       "name": "skill-creator",
       "source": "./plugins/skill-creator",
       "description": "Author focused agent skills; add references, assets, scripts, and host-specific outputs only when useful or required by the target repository, then validate the result."
+    },
+    {
+      "name": "pmcro",
+      "source": "./plugins/pmcro",
+      "description": "PMCR-O capability, host, governance, memory, and multi-agent lifecycle contracts aligned with the Agent Skills marketplace."
     }
   ]
 }
