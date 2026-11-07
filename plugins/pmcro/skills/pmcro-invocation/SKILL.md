@@ -14,13 +14,13 @@ Primary profile: Schema/Contract + Procedural. Define the common message envelop
 Use this compact form when an addressed agent must receive a seed through a plugin-scoped agent entrypoint:
 
 ~~~text
-@<AGENT>
-/agent-<PLUGIN>
+`@<AGENT>`
+`/agent-<PLUGIN>`
 "<NEXT_SEED_INTENT>"
 ~~~
 
-- @<AGENT> identifies the accountable agent.
-- /agent-<PLUGIN> addresses the plugin's agent entrypoint or a shared agent service such as /agent-orchestrator.
+- `@<AGENT>` identifies the accountable agent.
+- `/agent-<PLUGIN>` addresses the plugin's agent entrypoint or a shared agent service such as /agent-orchestrator.
 - The quoted text is the SeedIntent payload; preserve it verbatim and retain its provenance.
 - /agent-orchestrator is the shared pre-invocation selection route. It discovers plugin ownership, inspects skill descriptions, selects the smallest relevant skill set, and coordinates dispatch.
 - A route is executable only when the active host has registered it to a real agent entrypoint. Until verified, treat it as a logical protocol address.
@@ -33,13 +33,13 @@ Example:
 "Inspect the agent-skills repository. Determine which plugin owns the requested functionality, select the correct skill, and coordinate the required plugin update."
 ~~~
 
-The selected skill is a separate object. Invoke the exact skill identifier through the target host's supported mechanism; do not assume /agent-<PLUGIN> itself loads a skill.
+The selected skill is a separate object. Invoke the exact skill identifier through the target host's supported mechanism; do not assume `/agent-<PLUGIN>` itself loads a skill.
 
 ## Required PMCR-O lifecycle envelope
 
 ~~~yaml
 @ORCHESTRATOR
-/pmcro:<domain>:<action>
+`/pmcro:<domain>:<action>`
 
 TASK:
   "<What needs to happen>"
@@ -89,10 +89,10 @@ EXPECT:
 ## Address namespaces
 
 - Agent identity: @AGENT identifies the accountable agent.
-- Plugin-agent route: /agent-<PLUGIN> identifies a host-facing agent entrypoint; /agent-orchestrator is the shared pre-invocation selection route when registered.
-- Subagent route: /pmcro:subagent:<agent-id> is a logical PMCR-O subagent address only where the host maps it to a real isolated context.
+- Plugin-agent route: `/agent-<PLUGIN>` identifies a host-facing agent entrypoint; /agent-orchestrator is the shared pre-invocation selection route when registered.
+- Subagent route: `/pmcro:subagent:<agent-id>` is a logical PMCR-O subagent address only where the host maps it to a real isolated context.
 - Capability/skill route: invoke the exact registered plugin/skill identifier, for example pmcro-skill-creator/skill-creator. A skill is not an agent identity.
-- Logical lifecycle action: /pmcro:<domain>:<action> is callable only when the active host has registered an exact mapping. Do not invent commands such as /pmcro:cycle:resume.
+- Logical lifecycle action: `/pmcro:<domain>:<action>` is callable only when the active host has registered an exact mapping. Do not invent commands such as /pmcro:cycle:resume.
 
 ## Invocation resolution
 

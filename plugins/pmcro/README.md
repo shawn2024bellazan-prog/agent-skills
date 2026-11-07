@@ -37,9 +37,9 @@ It is an **architecture and instruction package**, not a PMCR-O execution daemon
 - pmcro:host:init is the bootstrap contract defined by that genome; a real host adapter executes it.
 - The deployment's .pmcro/ directory is the runtime and evidence plane: sessions, queues, authorization decisions, invocation records, trails, artifacts, and receipts.
 - pmcro:init is the root bootstrap workflow. It initializes foundational capabilities; it does not authorize arbitrary project execution.
-- The compact handoff is @<AGENT> → /agent-<PLUGIN> → quoted NEXT_SEED_INTENT. /agent-orchestrator is the shared pre-invocation selector when a host registers it. The selector resolves plugin ownership and skill descriptions before loading the minimum needed capability.
-- Capability dispatch (pmcro:*) and lifecycle-agent dispatch (@AGENT) remain distinct operations. Address a PMCR-O subagent with /pmcro:subagent:<agent-id> only where the host maps it; invoke a skill by its exact registered skill identifier.
-- The colon-form /pmcro:<domain>:<action> is a protocol address only when a host maps it; marketplace skill invocation uses the actual installed skill name. Never invent a command such as /pmcro:cycle:resume.
+- The compact handoff is `@<AGENT>` → `/agent-<PLUGIN>` → quoted NEXT_SEED_INTENT. /agent-orchestrator is the shared pre-invocation selector when a host registers it. The selector resolves plugin ownership and skill descriptions before loading the minimum needed capability.
+- Capability dispatch (pmcro:*) and lifecycle-agent dispatch (@AGENT) remain distinct operations. Address a PMCR-O subagent with `/pmcro:subagent:<agent-id>` only where the host maps it; invoke a skill by its exact registered skill identifier.
+- The colon-form `/pmcro:<domain>:<action>` is a protocol address only when a host maps it; marketplace skill invocation uses the actual installed skill name. Never invent a command such as /pmcro:cycle:resume.
 - The five lifecycle roles are structurally isolated. Checker is read-only and cannot repair the work it evaluates.
 
 ## Repository boundary
