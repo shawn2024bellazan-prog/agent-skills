@@ -15,7 +15,7 @@ Each catalog must contain the same plugin names and relative source paths. Host-
 
 The marketplace contains ten directory-reference plugins: agent-config, agent-memory, agents, commands, output-styles, projects, rules, skills, themes, and workflows. It also contains the separate `skill-creator` authoring plugin and the cross-cutting `pmcro` architecture integration plugin.
 
-Each plugin lives under plugins/<name>/ and includes a root plugin.json, version.json, Claude and Codex compatibility metadata, and a skills/ directory. The skill entrypoint is skills/<skill-name>/SKILL.md; supporting material belongs in that skill's references/, assets/, or scripts/ directories as appropriate.
+Each plugin lives under `plugins/<name>/` and includes a root `plugin.json`, `version.json`, Claude and Codex compatibility metadata, and a `skills/` directory. The skill entrypoint is `skills/<skill-name>/SKILL.md`; supporting material belongs in that skill's `references/`, `assets/`, or `scripts/` directories as appropriate.
 
 ## Updating catalogs
 
