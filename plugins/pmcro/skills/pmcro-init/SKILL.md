@@ -5,9 +5,9 @@ description: "Bootstrap PMCR-O foundational capabilities and evaluate host readi
 
 # PMCR-O initialization
 
-## Purpose
+## Purpose and profile
 
-Coordinate bootstrap of PMCR-O itself. `pmcro:init` is the root initialization workflow, not a sixth lifecycle agent and not a replacement for the host runtime.
+Primary profile: Procedural. Secondary facets: Schema/Contract + Validation.\n\nCoordinate bootstrap of PMCR-O itself. `pmcro:init` is the root initialization workflow, not a sixth lifecycle agent and not a replacement for the host runtime.
 
 ## Invocation identity
 
