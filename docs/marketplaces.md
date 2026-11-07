@@ -1,6 +1,6 @@
 # Marketplace manifests
 
-This repository publishes the same twelve marketplace plugins through multiple host marketplace catalogs: ten directory-reference plugins and the separate `skill-creator` authoring plugin. The catalogs are maintained as synchronized copies; there is currently no manifest generator, so update and validate all copies together.
+This repository publishes the same twelve marketplace plugins through multiple host marketplace catalogs: ten directory-reference plugins, the `skill-creator` authoring plugin, and the cross-cutting `pmcro` architecture integration plugin. The catalogs are maintained as synchronized copies; there is currently no manifest generator, so update and validate all copies together.
 
 ## Catalog locations
 
