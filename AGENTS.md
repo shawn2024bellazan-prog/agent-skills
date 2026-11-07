@@ -1,6 +1,6 @@
 # Repository instructions
 
-This repository is a directory-reference and authoring marketplace. It contains eleven marketplace plugins under `plugins/`: ten directory-reference plugins covering the AGENTS project/global layout and one authoring plugin, `skill-creator`.
+This repository is a directory-reference and authoring marketplace. It contains twelve marketplace plugins under `plugins/`: ten directory-reference plugins covering the AGENTS project/global layout, one authoring plugin (`skill-creator`), and one cross-cutting PMCR-O integration plugin (`pmcro`).
 
 ## Product scope
 
@@ -32,7 +32,8 @@ There is no generator today. When changing the plugin set, update all four catal
 - Preserve the distinction between project-scoped and global configuration.
 - Distinguish subagent memory from main-session project auto memory.
 - Ground host behavior in relevant official documentation and flag version-sensitive behavior instead of presenting it as universal.
-- Keep root and per-plugin READMEs aligned with the marketplace catalogs.
+- Keep root and per-plugin READMEs aligned with the marketplace catalogs. The PMCR-O plugin may define cross-cutting contracts, but must not redefine the documented scope of directory-reference plugins.
+- Preserve the repository's root `.agents/` boundary: it is reserved for Codex marketplace metadata and maintenance assets. PMCR-O deployment genome/runtime locations apply to the target host/project, not this repository.
 - Avoid machine-specific paths except where a path is explicitly part of source evidence or an example clearly labeled as such.
 
 ## Validation

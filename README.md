@@ -3,7 +3,7 @@
 A plugin marketplace that documents and helps author the files and directories used to
 configure AGENTS at the project and global levels.
 
-The marketplace includes ten directory-reference plugins and a separate authoring plugin, `skill-creator`. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
+The marketplace includes ten directory-reference plugins, a separate authoring plugin (`skill-creator`), and the cross-cutting `pmcro` architecture integration plugin. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
 the purpose, scope, loading behavior, conventions, and practical use of that part of the
 configuration. Supporting reference material lives beside the skill so it can be consulted
 when needed.
@@ -27,6 +27,7 @@ present in the source repository used as a packaging reference.
 | [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
 | [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
 | [skill-creator](plugins/skill-creator/) | Agent-skill authoring | Scaffolds and validates new skills with `SKILL.md` and supporting resources. |
+| [pmcro](plugins/pmcro/) | PMCR-O architecture integration | Structured invocation, bootstrap, lifecycle roles, marketplace alignment, host/genome boundaries, memory, governance, and evidence contracts. |
 
 Marketplace catalogs are maintained for AGENTS, Cursor, Codex, and GitHub:
 
@@ -133,6 +134,12 @@ Cursor plugin workflow.
 > repository must be accessible to the account and environment performing the installation.
 > This repository is private, so a local
 > checkout is the predictable option unless its visibility or access has changed.
+
+## PMCR-O integration
+
+The [PMCR-O plugin](plugins/pmcro/) packages reusable contracts for initialization, structured invocation, the five lifecycle roles, capability-to-marketplace alignment, host/genome boundaries, memory scopes, and governance/evidence. It is an architecture and instruction package, not a live PMCR-O runtime. A target host must supply actual adapters, isolated agent contexts, authorization enforcement, and evidence services.
+
+The colon-form `/pmcro:<domain>:<action>` is a logical protocol address only when a host adapter maps it. The marketplace skills are invoked by their actual skill names; do not claim that a slash command exists unless it is registered by the active host.
 
 ## Separate GitHub Agentic Workflow packages
 

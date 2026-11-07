@@ -1,0 +1,8 @@
+{
+  "name": "pmcro",
+  "version": "0.1.0",
+  "description": "PMCR-O capability, host, governance, memory, and multi-agent lifecycle contracts aligned with the Agent Skills marketplace.",
+  "skills": [
+    "./skills/"
+  ]
+}
