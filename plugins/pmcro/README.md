@@ -2,7 +2,7 @@
 
 > Portable PMCR-O capability and lifecycle contracts aligned with the Agent Skills marketplace.
 
-This plugin packages PMCR-O's invocation conventions, bootstrap sequence, lifecycle role boundaries, marketplace mapping, host/genome contract, memory distinctions, and evidence governance as discoverable Agent Skills.
+This plugin packages PMCR-O's invocation conventions, bootstrap sequence, lifecycle role boundaries, marketplace mapping, host/genome contract, memory distinctions, and evidence governance as discoverable Agent Skills. It also provides one PMCR-O coordination adapter skill for each of the eleven existing marketplace plugins; the native plugin remains the owner of its implementation.
 
 It is an **architecture and instruction package**, not a PMCR-O execution daemon. A host must provide real dispatch, identity isolation, authorization, tools, persistence, and evidence services before any skill can claim those operations occurred.
 
@@ -18,6 +18,17 @@ It is an **architecture and instruction package**, not a PMCR-O execution daemon
 | [pmcro-memory](skills/pmcro-memory/SKILL.md) | Separate agent, project, cycle, and runtime memory | `agent-memory`, `projects`, `agents` |
 | [pmcro-governance](skills/pmcro-governance/SKILL.md) | Authorization, outcomes, verification, and evidence integrity | `rules`, `agents`, `workflows` |
 | [pmcro-reflector-seed-handoff](skills/pmcro-reflector-seed-handoff/SKILL.md) | Layered Reflector seed handoff to Skill Creator | `workflows`, `skill-creator`, `skills` |
+| [pmcro-agent-config](skills/pmcro-agent-config/SKILL.md) | Coordinate target-host configuration discovery and authorized updates | `agent-config`, `pmcro-host` |
+| [pmcro-agent-memory](skills/pmcro-agent-memory/SKILL.md) | Resolve and manage scoped subagent memory without mixing evidence planes | `agent-memory`, `pmcro-memory` |
+| [pmcro-agents](skills/pmcro-agents/SKILL.md) | Resolve lifecycle agent identity, isolation, and subagent dispatch | `agents`, `pmcro-lifecycle` |
+| [pmcro-commands](skills/pmcro-commands/SKILL.md) | Discover and validate command/route registrations without inventing routes | `commands`, `pmcro-invocation` |
+| [pmcro-output-styles](skills/pmcro-output-styles/SKILL.md) | Apply presentation styles without changing policy or role boundaries | `output-styles`, `pmcro-invocation` |
+| [pmcro-projects](skills/pmcro-projects/SKILL.md) | Retrieve project context while preserving memory-scope distinctions | `projects`, `pmcro-memory` |
+| [pmcro-rules](skills/pmcro-rules/SKILL.md) | Evaluate applicable rules and distinguish guidance from host enforcement | `rules`, `pmcro-governance` |
+| [pmcro-skill-creator](skills/pmcro-skill-creator/SKILL.md) | Create and validate bounded skills using the existing creator capability | `skill-creator`, `pmcro-reflector-seed-handoff` |
+| [pmcro-skills](skills/pmcro-skills/SKILL.md) | Discover and invoke exact installed skills through supported host mechanisms | `skills`, `pmcro-invocation` |
+| [pmcro-themes](skills/pmcro-themes/SKILL.md) | Discover and apply visual themes without changing operational policy | `themes` |
+| [pmcro-workflows](skills/pmcro-workflows/SKILL.md) | Validate and coordinate multi-step workflow execution and evidence | `workflows`, `pmcro-lifecycle` |
 
 ## Core architecture
 
