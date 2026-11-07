@@ -1,6 +1,6 @@
 ---
 name: pmcro-invocation
-description: "Construct structured PMCR-O messages with task context, capability calls, lifecycle-agent handoffs, constraints and expected evidence. Use for every PMCR-O request, delegation or result."
+description: "Construct structured PMCR-O messages with task context, capability calls, lifecycle-agent handoffs, plugin-agent routes, constraints and expected evidence. Use for every PMCR-O request, delegation or result."
 ---
 
 # PMCR-O structured invocation protocol
@@ -9,9 +9,35 @@ description: "Construct structured PMCR-O messages with task context, capability
 
 Primary profile: Schema/Contract + Procedural. Define the common message envelope and invocation decision rules. A message is not an agent identity, tool binding, permission grant or execution receipt.
 
-## Required envelope
+## Canonical agent-plugin handoff
 
-```yaml
+Use this compact form when an addressed agent must receive a seed through a plugin-scoped agent entrypoint:
+
+~~~text
+@<AGENT>
+/agent-<PLUGIN>
+"<NEXT_SEED_INTENT>"
+~~~
+
+- @<AGENT> identifies the accountable agent.
+- /agent-<PLUGIN> addresses the plugin's agent entrypoint or a shared agent service such as /agent-orchestrator.
+- The quoted text is the SeedIntent payload; preserve it verbatim and retain its provenance.
+- /agent-orchestrator is the shared pre-invocation selection route. It discovers plugin ownership, inspects skill descriptions, selects the smallest relevant skill set, and coordinates dispatch.
+- A route is executable only when the active host has registered it to a real agent entrypoint. Until verified, treat it as a logical protocol address.
+
+Example:
+
+~~~text
+@PLUGIN-CREATOR
+/agent-orchestrator
+"Inspect the agent-skills repository. Determine which plugin owns the requested functionality, select the correct skill, and coordinate the required plugin update."
+~~~
+
+The selected skill is a separate object. Invoke the exact skill identifier through the target host's supported mechanism; do not assume /agent-<PLUGIN> itself loads a skill.
+
+## Required PMCR-O lifecycle envelope
+
+~~~yaml
 @ORCHESTRATOR
 /pmcro:<domain>:<action>
 
@@ -58,28 +84,31 @@ EXPECT:
   result: "<EXPECTED_RESULT_TYPE>"
   readiness: READY | PARTIAL | BLOCKED
   evidence: REQUIRED
-```
+~~~
 
 ## Address namespaces
 
-- **Subagent route:** `@ORCHESTRATOR` addresses a subagent with `/pmcro:subagent:<agent-id>`, for example `/pmcro:subagent:agent-memory`. The host must resolve that agent identity and its implementation.
-- **Capability/skill route:** invoke the exact registered plugin/skill identifier, for example `pmcro-skill-creator/skill-creator`. A skill is not an agent identity.
-- **Logical lifecycle action:** `/pmcro:<domain>:<action>` is callable only when the active host has registered an exact mapping. Do not invent commands such as `/pmcro:cycle:resume`.
+- Agent identity: @AGENT identifies the accountable agent.
+- Plugin-agent route: /agent-<PLUGIN> identifies a host-facing agent entrypoint; /agent-orchestrator is the shared pre-invocation selection route when registered.
+- Subagent route: /pmcro:subagent:<agent-id> is a logical PMCR-O subagent address only where the host maps it to a real isolated context.
+- Capability/skill route: invoke the exact registered plugin/skill identifier, for example pmcro-skill-creator/skill-creator. A skill is not an agent identity.
+- Logical lifecycle action: /pmcro:<domain>:<action> is callable only when the active host has registered an exact mapping. Do not invent commands such as /pmcro:cycle:resume.
 
 ## Invocation resolution
 
-The colon-form `/pmcro:<domain>:<action>` is a logical PMCR-O protocol address. It is callable only when the active host has a registered mapping for that exact address. Do not invent commands such as `/pmcro:cycle:resume` merely because they fit the naming pattern.
-
-When no such mapping exists:
-1. Resolve an installed/discoverable marketplace skill by its actual name (for example, `pmcro-marketplace`).
-2. Identify the exact skill owner and expected output.
-3. Keep the logical domain/action in the message metadata, not as a false claim that the slash command exists.
-4. If no matching skill/adapter exists, report `CAPABILITY_MISSING`.
+1. Preserve the raw SeedIntent and determine whether the request addresses an agent, plugin, skill, command, or lifecycle operation.
+2. Resolve the exact agent and plugin route from the active host registry. A textual route is not proof of registration.
+3. For plugin-agent work, use the PMCR-O Agent Orchestrator capability to inspect the target plugin manifest and skill descriptions before loading any full skill.
+4. Select the owning plugin's smallest relevant skill set; prefer native plugin ownership over adapter duplication.
+5. Load only the selected SKILL.md and supporting resources actually needed.
+6. Invoke the exact skill using the active host's registered mechanism. Do not assume a tool named load_skill exists unless the host registers it.
+7. Record route, loading, authorization, dispatch and execution as separate states.
+8. If no host route exists, keep the logical address in message metadata and report it unavailable. If no skill exists, report CAPABILITY_MISSING.
 
 ## Construction rules
 
 1. Preserve the top-level order: addressed agent/invocation, TASK, CONTEXT, INPUT, CAPABILITY_DISPATCH, AGENT_DISPATCH, CONSTRAINTS, EXPECT.
-2. Keep `pmcro:*` capability dispatch separate from `@AGENT` dispatch. A skill is not an agent.
+2. Keep capability/skill dispatch separate from @AGENT dispatch. A skill is not an agent.
 3. Give every dispatch a bounded task, necessary inputs, allowed scope and expected typed result.
 4. Include only relevant agents/capabilities, but include all required lifecycle roles when the requested cycle requires them.
 5. Checker must be read-only and structurally independent. A label change is not independence.
@@ -89,14 +118,14 @@ When no such mapping exists:
 
 ## Result vocabulary
 
-- `SUCCEEDED`: actual configured integration returned success.
-- `REJECTED`: actual target rejected the operation.
-- `FORBIDDEN`: actual permission boundary denied it.
-- `UNSUPPORTED`: target does not provide the capability.
-- `CAPABILITY_MISSING`: no configured implementation or entrypoint exists.
-- `AUTHORIZATION_REQUIRED`: policy requires an authorization decision before dispatch.
-- `UNVERIFIED`: evidence is insufficient to establish outcome.
-- `NOT_EVALUATED`: Checker could not evaluate because required evidence or independent context was absent.
+- SUCCEEDED: actual configured integration returned success.
+- REJECTED: actual target rejected the operation.
+- FORBIDDEN: actual permission boundary denied it.
+- UNSUPPORTED: target does not provide the capability.
+- CAPABILITY_MISSING: no configured implementation or entrypoint exists.
+- AUTHORIZATION_REQUIRED: policy requires an authorization decision before dispatch.
+- UNVERIFIED: evidence is insufficient to establish outcome.
+- NOT_EVALUATED: Checker could not evaluate because required evidence or independent context was absent.
 
 ## Validation
 
