@@ -1,6 +1,6 @@
 {
   "name": "skill-creator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Author focused agent skills; add references, assets, scripts, and host-specific outputs only when useful or required by the target repository, then validate the result.",
   "skills": ["./skills/"]
 }
