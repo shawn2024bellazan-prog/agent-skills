@@ -1,0 +1,8 @@
+{
+  "project": "/absolute/authorized/project",
+  "operation": "trust",
+  "args": [
+    "list",
+    "--json"
+  ]
+}

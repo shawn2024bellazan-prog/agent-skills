@@ -1,0 +1,14 @@
+{
+  "action": "register",
+  "project_id": "everything-as-agent",
+  "project_root": "/absolute/authorized/EverythingAsAgent",
+  "apply": false,
+  "initialization_example": {
+    "action": "initialize",
+    "dotagents_adapter": "/absolute/dotagents/skills/dotagents/scripts/dotagents.py",
+    "dotagents_sha256": "VERIFY_FROM_TRUSTED_RELEASE",
+    "agents": "claude,codex",
+    "apply": false
+  },
+  "runtime_example": {"action": "runtime", "apply": false}
+}

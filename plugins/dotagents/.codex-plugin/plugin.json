@@ -1,0 +1,8 @@
+{
+  "name": "dotagents",
+  "version": "0.1.0",
+  "description": "Operate the installed DotAgents CLI through bounded project-scoped skills.",
+  "skills": [
+    "./skills/"
+  ]
+}

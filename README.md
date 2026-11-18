@@ -3,7 +3,7 @@
 A plugin marketplace that documents and helps author the files and directories used to
 configure AGENTS at the project and global levels.
 
-The marketplace includes ten directory-reference plugins and a separate authoring plugin, `skill-creator`. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
+The marketplace includes ten directory-reference plugins, the authoring plugin `skill-creator`, and the dedicated `dotagents` provider plugin. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
 the purpose, scope, loading behavior, conventions, and practical use of that part of the
 configuration. Supporting reference material lives beside the skill so it can be consulted
 when needed.
@@ -17,6 +17,7 @@ present in the source repository used as a packaging reference.
 | Plugin | Directory or area | What it covers |
 | --- | --- | --- |
 | [agent-config](plugins/agent-config/) | Root files and `.claude/` | Project and global instructions, settings, MCP configuration, keybindings, app state, and the AGENTS configuration layout. |
+| [dotagents](plugins/dotagents/) | Portable `.agents/` configuration | Native CLI micro-skills for init, install, add, remove, sync, MCP, trust, doctor and list. |
 | [rules](plugins/rules/) | `rules/` | Topic-scoped instructions, including optional path-based loading with frontmatter globs. |
 | [skills](plugins/skills/) | `skills/` | Reusable, invocable skill folders with a `SKILL.md` entrypoint and supporting files. |
 | [commands](plugins/commands/) | `commands/` | Single-file prompts invoked by name, including argument conventions and the relationship to skills. |
@@ -25,7 +26,7 @@ present in the source repository used as a packaging reference.
 | [workflows](plugins/workflows/) | `workflows/` | Dynamic workflow scripts that coordinate subagents. |
 | [agent-memory](plugins/agent-memory/) | `agent-memory/` | Persistent, project-scoped memory belonging to individual subagents. |
 | [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
-| [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
+| [projects](plugins/projects/) | Global `projects/` | Project lifecycle, DotAgents configuration binding and scoped private PMCR-O runtime, alongside per-project auto memory. |
 | [skill-creator](plugins/skill-creator/) | Agent-skill authoring | Scaffolds and validates new skills with `SKILL.md` and supporting resources. |
 
 Marketplace catalogs are maintained for AGENTS, Cursor, Codex, and GitHub:
@@ -86,6 +87,18 @@ The reference material distinguishes areas that can look similar but serve diffe
 - **Subagent memory** is separate from the main session's **project auto memory**.
 - **Plugins** package and distribute skills; they are not themselves the Claude configuration
   directories being documented.
+
+The dedicated `dotagents` plugin supports portable project configuration through
+[Sentry DotAgents](https://github.com/getsentry/dotagents). Use its
+[integration contract](plugins/dotagents/skills/dotagents/references/contract.md)
+to initialize, synchronize, check and manage dependencies for explicitly selected projects. `agent-config` delegates new calls to this plugin; its legacy adapter remains frozen for existing private registry pins. Host-specific files
+remain generated projections of portable `.agents/` configuration; private PMCR-O runtime
+state remains separate under `~/.pmcro/`.
+
+The [Project Agent lifecycle](plugins/projects/skills/project-lifecycle/SKILL.md)
+can invoke that installed adapter during initialization, persist its verified
+binding in the private registry, and resolve scoped memory, task and trail handles
+without exposing private content or starting a model runtime.
 
 Some details are host- and version-specific. Treat the skill references as documentation of
 the conventions they describe, and check the linked official documentation when validating

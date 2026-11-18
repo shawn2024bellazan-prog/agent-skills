@@ -1,0 +1,8 @@
+{
+  "project": "/absolute/authorized/project",
+  "operation": "init",
+  "args": [
+    "--agents",
+    "claude,codex"
+  ]
+}

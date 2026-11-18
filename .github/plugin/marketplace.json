@@ -7,7 +7,12 @@
     {
       "name": "agent-config",
       "source": "./plugins/agent-config",
-      "description": "Reference for AGENTS root files and project/global .claude/ directories: instructions, MCP servers, settings, keybindings, app state."
+      "description": "Configure AGENTS root files and host-specific settings; delegate portable configuration operations to DotAgents."
+    },
+    {
+      "name": "dotagents",
+      "source": "./plugins/dotagents",
+      "description": "Operate the installed DotAgents CLI through bounded project-scoped skills."
     },
     {
       "name": "rules",
@@ -52,7 +57,7 @@
     {
       "name": "projects",
       "source": "./plugins/projects",
-      "description": "Reference for projects/: auto memory, per project (global scope)."
+      "description": "Project Agent lifecycle, DotAgents configuration binding, and scoped private PMCR-O runtime and memory."
     },
     {
       "name": "skill-creator",
