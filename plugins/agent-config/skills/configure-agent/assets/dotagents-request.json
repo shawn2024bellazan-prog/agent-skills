@@ -1,0 +1,5 @@
+{
+  "project": "/path/to/project",
+  "operation": "init",
+  "agents": ["claude", "cursor", "codex", "vscode", "copilot"]
+}

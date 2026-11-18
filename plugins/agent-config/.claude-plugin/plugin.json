@@ -1,6 +1,6 @@
 {
   "name": "agent-config",
-  "version": "0.1.1",
-  "description": "Reference for AGENTS root files and the project/global .claude/ directories: instructions, MCP servers, settings, keybindings, and app state.",
+  "version": "0.2.0",
+  "description": "Configure AGENTS root files and host settings; initialize, synchronize and check portable project configuration with DotAgents.",
   "skills": ["./skills/"]
 }

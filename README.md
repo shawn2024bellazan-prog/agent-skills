@@ -87,6 +87,13 @@ The reference material distinguishes areas that can look similar but serve diffe
 - **Plugins** package and distribute skills; they are not themselves the Claude configuration
   directories being documented.
 
+The `agent-config` plugin additionally supports portable project configuration through
+[Sentry DotAgents](https://github.com/getsentry/dotagents). Use its
+[integration contract](plugins/agent-config/skills/configure-agent/references/dotagents.md)
+to initialize, synchronize, and check explicitly selected projects. Host-specific files
+remain generated projections of portable `.agents/` configuration; private PMCR-O runtime
+state remains separate under `~/.pmcro/`.
+
 Some details are host- and version-specific. Treat the skill references as documentation of
 the conventions they describe, and check the linked official documentation when validating
 behavior for a particular AGENTS release.

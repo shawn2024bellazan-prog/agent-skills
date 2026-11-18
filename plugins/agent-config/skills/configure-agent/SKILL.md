@@ -1,6 +1,6 @@
 ---
 name: configure-agent
-description: "Configure AGENTS project or global instructions and runtime settings such as CLAUDE.md, .claude/settings.json, .mcp.json, keybindings, and application state. Use when choosing configuration scope or editing these files; use the specialized skills for agents, skills, rules, commands, memory, or workflows."
+description: "Configure AGENTS project or global instructions and runtime settings, including DotAgents project initialization, synchronization and health checks across AI hosts. Use when choosing configuration scope or editing host settings; use specialized skills for agents, skills, rules, commands, memory, or workflows."
 ---
 
 # Agent configuration files
@@ -15,6 +15,7 @@ Place AGENTS instructions and settings at the correct project or global scope, p
 - Editing project `.claude/settings.json`, `.claude/settings.local.json`, `.mcp.json`, or `.worktreeinclude`.
 - Editing global AGENTS instructions, settings, keybindings, or application state.
 - Deciding whether a configuration should be shared with a project or remain personal.
+- Connecting a project’s portable `.agents/` configuration to supported AI hosts using DotAgents.
 
 ## When Not to Use
 
@@ -28,6 +29,11 @@ Place AGENTS instructions and settings at the correct project or global scope, p
 | Configuration change | Yes | The setting or behavior to add, change, or explain. |
 | Scope | If known | Project-shared or global/personal; discover the existing layout if unspecified. |
 | Existing configuration | No | Relevant files and repository ignore rules, when available. |
+| DotAgents project root | For DotAgents | Explicit project directory; select `init`, `sync`, or `doctor`. |
+
+## Deliverables
+
+Return the changed configuration and verification evidence, or a blocked outcome if the required provider is unavailable.
 
 ## Workflow
 
@@ -37,11 +43,14 @@ Place AGENTS instructions and settings at the correct project or global scope, p
 4. Make the smallest change that expresses the requested behavior. Keep local-only settings ignored by version control.
 5. Check syntax for edited structured files and confirm that project/global scope and ignore behavior are correct.
 
+For DotAgents requests, use [the integration contract](./references/dotagents.md) and run `scripts/dotagents.py` from this skill's directory. Invoke the installed CLI, not a reimplementation. The adapter requires an explicit project root, never selects global scope, and does not install or download a CLI automatically. Native host directories are projections; private PMCR-O state under `~/.pmcro/` is accessed through a separately authorized provider, never symlinked into `.agents/`.
+
 ## Validation
 
 - [ ] Instructions and settings are in the intended project or global location.
 - [ ] JSON files parse, and no secret values were added.
 - [ ] Personal overrides remain untracked and shared configuration contains no machine-specific assumptions.
+- [ ] For DotAgents, confirm the CLI exit status and run `doctor` after an authorized initialization or sync; do not claim PASS if the provider is unavailable.
 
 ## Common Pitfalls
 
@@ -65,3 +74,4 @@ See the plugin README for the directory overview.
 - [Settings](./references/settings.json.md)
 - [Local settings](./references/settings.local.json.md)
 - [Worktree include](./references/worktreeinclude.md)
+- [DotAgents and PMCR-O integration](./references/dotagents.md)
