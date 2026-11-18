@@ -1,0 +1,6 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dotagents",
+  "version": "0.1.0",
+  "description": "Operate the installed DotAgents CLI through bounded project-scoped skills."
+}

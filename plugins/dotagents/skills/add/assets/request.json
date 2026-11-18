@@ -1,0 +1,11 @@
+{
+  "project": "/absolute/authorized/project",
+  "operation": "add",
+  "args": [
+    "owner/repo",
+    "skill-name",
+    "--ref",
+    "v1",
+    "--apply"
+  ]
+}

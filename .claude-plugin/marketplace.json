@@ -10,7 +10,12 @@
     {
       "name": "agent-config",
       "source": "./plugins/agent-config",
-      "description": "Configure AGENTS root files and host settings; initialize, synchronize and check portable project configuration with DotAgents."
+      "description": "Configure AGENTS root files and host-specific settings; delegate portable configuration operations to DotAgents."
+    },
+    {
+      "name": "dotagents",
+      "source": "./plugins/dotagents",
+      "description": "Operate the installed DotAgents CLI through bounded project-scoped skills."
     },
     {
       "name": "rules",

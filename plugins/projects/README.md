@@ -8,7 +8,7 @@ the project; no private memory or trail is distributed. The existing scaffold
 engine is reused with a local-only manifest. See
 `skills/project-lifecycle/references/contract.md`.
 
-The lifecycle can invoke the existing DotAgents adapter in `agent-config` v0.2.0.
+The lifecycle can invoke the dedicated `dotagents` plugin's canonical adapter. Existing `agent-config` v0.2.0 bindings remain pinned to their unchanged legacy path.
 Provide its trusted absolute path and independently verified SHA-256 pin when
 initializing; include an explicit host list for a new configuration. The private registry
 stores that binding and verifies it before runtime resolution or activation. No
@@ -24,7 +24,7 @@ python3 skills/project-lifecycle/scripts/project_lifecycle.py status --project-i
 python3 skills/project-lifecycle/scripts/project_lifecycle.py runtime --project-id everything-as-agent --project-root /absolute/EverythingAsAgent
 ```
 
-For DotAgents-backed initialization, add `--dotagents-adapter /absolute/configure-agent/scripts/dotagents.py --dotagents-sha256 VERIFIED_SHA256 --agents claude,codex` to the initialize command. Omit `--agents` when `agents.toml` already exists, and review the configuration before authorizing sync.
+For DotAgents-backed initialization, add `--dotagents-adapter /absolute/dotagents/skills/dotagents/scripts/dotagents.py --dotagents-sha256 VERIFIED_SHA256 --agents claude,codex` to the initialize command. Omit `--agents` when `agents.toml` already exists, and review the configuration before authorizing sync.
 
 These are local registry operations, not AI host project creation or runtime
 startup. Resolve the existing Project Agent host provider for those requests.

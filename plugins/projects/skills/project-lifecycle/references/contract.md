@@ -28,7 +28,7 @@ The source project must be outside the global private tree and vice versa.
 ## DotAgents provider binding
 
 An explicitly authorized initialization can delegate to the already installed
-`agent-config/configure-agent` adapter. Supply its absolute `--dotagents-adapter`
+`dotagents` plugin's canonical `skills/dotagents/scripts/dotagents.py` adapter. Existing legacy `agent-config` bindings remain valid at their original path and digest. Supply its absolute `--dotagents-adapter`
 path, independently verified `--dotagents-sha256` pin, and `--agents` only if
 `agents.toml` does not exist. Resolve the adapter from a trusted release before
 the call. The lifecycle runs the existing adapter's `init` or `sync`, then

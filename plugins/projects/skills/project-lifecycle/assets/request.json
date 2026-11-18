@@ -5,7 +5,7 @@
   "apply": false,
   "initialization_example": {
     "action": "initialize",
-    "dotagents_adapter": "/absolute/configure-agent/scripts/dotagents.py",
+    "dotagents_adapter": "/absolute/dotagents/skills/dotagents/scripts/dotagents.py",
     "dotagents_sha256": "VERIFY_FROM_TRUSTED_RELEASE",
     "agents": "claude,codex",
     "apply": false

@@ -10,4 +10,4 @@ _Source: AGENTS docs, Explore the .claude directory (captures in G:\ProjectName\
 
 ## Portable configuration with DotAgents
 
-The `configure-agent` skill also provides a project-scoped adapter for the installed Sentry DotAgents CLI. It initializes and reconciles host projections from portable `.agents/` configuration and checks their health. It does not link host directories to private PMCR-O runtime state. See [the integration contract](skills/configure-agent/references/dotagents.md) for commands, guardrails and evidence requirements.
+The `configure-agent` skill delegates portable configuration to the dedicated [DotAgents plugin](../dotagents/). Its original adapter is frozen for existing private registry bindings; see [the compatibility contract](skills/configure-agent/references/dotagents.md). No private PMCR-O runtime data is projected into host configuration.

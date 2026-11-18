@@ -1,6 +1,6 @@
 # Repository instructions
 
-This repository is a directory-reference and authoring marketplace. It contains eleven marketplace plugins under `plugins/`: ten directory-reference plugins covering the AGENTS project/global layout and one authoring plugin, `skill-creator`.
+This repository is a directory-reference and authoring marketplace. It contains twelve marketplace plugins under `plugins/`: ten directory-reference plugins covering the AGENTS project/global layout, the authoring plugin `skill-creator`, and the dedicated `dotagents` provider plugin.
 
 ## Product scope
 

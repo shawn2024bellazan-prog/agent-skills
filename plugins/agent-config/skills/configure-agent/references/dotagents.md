@@ -1,4 +1,6 @@
-# DotAgents integration contract
+# DotAgents legacy compatibility contract
+
+**New calls:** resolve the dedicated `dotagents` plugin and its canonical adapter at `skills/dotagents/scripts/dotagents.py`. The original adapter below remains at its existing path, frozen for existing Project Agent registry pins (SHA-256 `2d9d01eab9f932a0fbd11c2491d71fd2fd662e2643b75607c9e1ef3603fd4711`). Do not silently rebind private records or maintain the legacy adapter as a second implementation.
 
 DotAgents is the existing configuration provider; AgentSkills routes calls to it. PMCR-O owns private project runtime state and accountability, not host-specific file formats.
 

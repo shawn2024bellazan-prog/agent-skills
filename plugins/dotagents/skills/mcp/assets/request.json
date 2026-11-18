@@ -1,0 +1,7 @@
+{
+  "project": "/absolute/authorized/project",
+  "operation": "mcp",
+  "args": [
+    "list"
+  ]
+}

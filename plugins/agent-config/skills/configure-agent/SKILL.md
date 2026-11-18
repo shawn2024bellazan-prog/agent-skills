@@ -43,7 +43,7 @@ Return the changed configuration and verification evidence, or a blocked outcome
 4. Make the smallest change that expresses the requested behavior. Keep local-only settings ignored by version control.
 5. Check syntax for edited structured files and confirm that project/global scope and ignore behavior are correct.
 
-For DotAgents requests, use [the integration contract](./references/dotagents.md) and run `scripts/dotagents.py` from this skill's directory. Invoke the installed CLI, not a reimplementation. The adapter requires an explicit project root, never selects global scope, and does not install or download a CLI automatically. Native host directories are projections; private PMCR-O state under `~/.pmcro/` is accessed through a separately authorized provider, never symlinked into `.agents/`.
+For DotAgents requests, delegate to the dedicated `dotagents` plugin and its matching bare-verb skill. See [the compatibility contract](./references/dotagents.md). The old local script remains byte-for-byte frozen solely for existing integrity-pinned Project Agent bindings. Do not route new calls through it. Native host directories are projections; private PMCR-O state under `~/.pmcro/` is accessed through a separately authorized provider, never symlinked into `.agents/`.
 
 ## Validation
 

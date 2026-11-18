@@ -3,7 +3,7 @@
 A plugin marketplace that documents and helps author the files and directories used to
 configure AGENTS at the project and global levels.
 
-The marketplace includes ten directory-reference plugins and a separate authoring plugin, `skill-creator`. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
+The marketplace includes ten directory-reference plugins, the authoring plugin `skill-creator`, and the dedicated `dotagents` provider plugin. Each directory-reference plugin focuses on one part of the layout. Its bundled Agent Skill explains
 the purpose, scope, loading behavior, conventions, and practical use of that part of the
 configuration. Supporting reference material lives beside the skill so it can be consulted
 when needed.
@@ -17,6 +17,7 @@ present in the source repository used as a packaging reference.
 | Plugin | Directory or area | What it covers |
 | --- | --- | --- |
 | [agent-config](plugins/agent-config/) | Root files and `.claude/` | Project and global instructions, settings, MCP configuration, keybindings, app state, and the AGENTS configuration layout. |
+| [dotagents](plugins/dotagents/) | Portable `.agents/` configuration | Native CLI micro-skills for init, install, add, remove, sync, MCP, trust, doctor and list. |
 | [rules](plugins/rules/) | `rules/` | Topic-scoped instructions, including optional path-based loading with frontmatter globs. |
 | [skills](plugins/skills/) | `skills/` | Reusable, invocable skill folders with a `SKILL.md` entrypoint and supporting files. |
 | [commands](plugins/commands/) | `commands/` | Single-file prompts invoked by name, including argument conventions and the relationship to skills. |
@@ -87,10 +88,10 @@ The reference material distinguishes areas that can look similar but serve diffe
 - **Plugins** package and distribute skills; they are not themselves the Claude configuration
   directories being documented.
 
-The `agent-config` plugin additionally supports portable project configuration through
+The dedicated `dotagents` plugin supports portable project configuration through
 [Sentry DotAgents](https://github.com/getsentry/dotagents). Use its
-[integration contract](plugins/agent-config/skills/configure-agent/references/dotagents.md)
-to initialize, synchronize, and check explicitly selected projects. Host-specific files
+[integration contract](plugins/dotagents/skills/dotagents/references/contract.md)
+to initialize, synchronize, check and manage dependencies for explicitly selected projects. `agent-config` delegates new calls to this plugin; its legacy adapter remains frozen for existing private registry pins. Host-specific files
 remain generated projections of portable `.agents/` configuration; private PMCR-O runtime
 state remains separate under `~/.pmcro/`.
 

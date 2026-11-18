@@ -1,6 +1,6 @@
 {
   "name": "agent-config",
   "version": "0.2.0",
-  "description": "Configure AGENTS root files and host settings; initialize, synchronize and check portable project configuration with DotAgents.",
+  "description": "Configure AGENTS root files and host-specific settings; delegate portable configuration operations to DotAgents.",
   "skills": ["./skills/"]
 }
