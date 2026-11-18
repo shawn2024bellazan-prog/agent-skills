@@ -1,6 +1,6 @@
 {
   "name": "projects",
-  "version": "0.1.1",
-  "description": "Reference for the projects/ directory: auto memory, the agent notes to itself per project (global scope).",
+  "version": "0.2.0",
+  "description": "Project Agent lifecycle, DotAgents configuration binding, and scoped private PMCR-O runtime and memory.",
   "skills": ["./skills/"]
 }

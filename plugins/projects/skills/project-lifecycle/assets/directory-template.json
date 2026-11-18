@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "directories": [
+    ".agents/agents", ".agents/skills", ".agents/commands",
+    ".agents/rules", ".agents/workflows", ".agents/hooks",
+    ".agents/output-styles", ".agents/plugins", ".agents/marketplaces",
+    ".agents/templates", ".agents/prompts", ".agents/tools"
+  ],
+  "files": {
+    ".gitignore": "/.pmcro/\n/.agents/settings.local.json\n/.agents/AGENTS.local.md\n/trails/\n",
+    "AGENTS.md": "# Agent workspace\n\nUse .agents/ for authored configuration, the authorized global ~/.pmcro/projects/ registry for private runtime state, and dist/ for generated outputs. Preserve existing instructions and private legacy data. Resolve and invoke real capabilities; never fabricate execution.\n",
+    ".agents/settings.json": "{}\n",
+    ".agents/mcp.json": "{\n  \"mcpServers\": {}\n}\n",
+    ".agents/plugins/marketplace.json": "{\n  \"name\": \"pmcro-local\",\n  \"plugins\": []\n}\n"
+  },
+  "required_ignore_rules": ["/.pmcro/", "/.agents/settings.local.json", "/.agents/AGENTS.local.md", "/trails/"]
+}

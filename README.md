@@ -25,7 +25,7 @@ present in the source repository used as a packaging reference.
 | [workflows](plugins/workflows/) | `workflows/` | Dynamic workflow scripts that coordinate subagents. |
 | [agent-memory](plugins/agent-memory/) | `agent-memory/` | Persistent, project-scoped memory belonging to individual subagents. |
 | [themes](plugins/themes/) | Global `themes/` | Custom color themes and their configuration. |
-| [projects](plugins/projects/) | Global `projects/` | Automatic memory organized by project, distinct from subagent memory. |
+| [projects](plugins/projects/) | Global `projects/` | Project lifecycle, DotAgents configuration binding and scoped private PMCR-O runtime, alongside per-project auto memory. |
 | [skill-creator](plugins/skill-creator/) | Agent-skill authoring | Scaffolds and validates new skills with `SKILL.md` and supporting resources. |
 
 Marketplace catalogs are maintained for AGENTS, Cursor, Codex, and GitHub:
@@ -93,6 +93,11 @@ The `agent-config` plugin additionally supports portable project configuration t
 to initialize, synchronize, and check explicitly selected projects. Host-specific files
 remain generated projections of portable `.agents/` configuration; private PMCR-O runtime
 state remains separate under `~/.pmcro/`.
+
+The [Project Agent lifecycle](plugins/projects/skills/project-lifecycle/SKILL.md)
+can invoke that installed adapter during initialization, persist its verified
+binding in the private registry, and resolve scoped memory, task and trail handles
+without exposing private content or starting a model runtime.
 
 Some details are host- and version-specific. Treat the skill references as documentation of
 the conventions they describe, and check the linked official documentation when validating

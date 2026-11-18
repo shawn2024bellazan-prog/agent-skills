@@ -29,14 +29,15 @@ Help distinguish and manage AGENTS's main-session automatic memory, which is sto
 
 ## Workflow
 
-1. Locate the project's memory under the global AGENTS projects directory (`~/.claude/projects/<project>/memory/`).
+1. Resolve the actual host and registered project. For PMCR-O, invoke the sibling `project-lifecycle` read-only `runtime` operation to confirm project identity, initialization and private resource scope, then use `~/.pmcro/projects/<project-id>/memory/` only for the authorized operation. For Claude, use its existing `~/.claude/projects/<project>/memory/` reference. Never guess a project ID, migrate memory, or read unrelated projects.
 2. Treat `MEMORY.md` as the index and topic files as detailed notes. Only the documented first 200 lines or 25 KB of each file load per session.
 3. Make the requested review or edit without treating this global memory as committed project configuration. The agent may continue updating it.
-4. Use `/memory` or the `autoMemoryEnabled` setting when the request is to toggle automatic memory.
+4. For Claude, use `/memory` or the `autoMemoryEnabled` setting when the request is to toggle automatic memory. Do not claim those controls exist in PMCR-O; return NOT_INVOKED if the applicable runtime provider is unavailable.
 5. Confirm the requested files or setting changed at the intended project-specific location.
 
 ## Validation
 
+- For PMCR-O, invoke `python3 -B scripts/check_index.py --project-id ID --project-root ABSOLUTE_PATH` to verify the index exists and its private registry is correctly scoped without reading memory content. See [example request](assets/request.json).
 - [ ] The memory belongs to the intended project and is in the global projects directory.
 - [ ] `MEMORY.md` remains a useful index and topic details are placed in topic files.
 - [ ] Any change to automatic-memory behavior uses the documented toggle.

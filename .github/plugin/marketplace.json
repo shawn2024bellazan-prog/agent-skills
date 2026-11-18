@@ -52,7 +52,7 @@
     {
       "name": "projects",
       "source": "./plugins/projects",
-      "description": "Reference for projects/: auto memory, per project (global scope)."
+      "description": "Project Agent lifecycle, DotAgents configuration binding, and scoped private PMCR-O runtime and memory."
     },
     {
       "name": "skill-creator",
